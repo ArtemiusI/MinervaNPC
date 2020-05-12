@@ -1,0 +1,324 @@
+IF
+	OnCreation()
+	!ClassLevelGT(Lastsummonerof(Myself),ROGUE,2)
+	Global("C0AlchemyRefreshStock","GLOBAL",1)
+THEN
+  RESPONSE #100
+    AddStoreItem("c0aupot1","c0apot01",3,0)
+    AddStoreItem("c0aupot1","c0apot02",3,0)
+    AddStoreItem("c0aupot1","c0apot03",3,0)
+	Continue()
+END
+
+IF
+	OnCreation()
+	ClassLevelGT(Lastsummonerof(Myself),ROGUE,2)
+	!ClassLevelGT(Lastsummonerof(Myself),ROGUE,5)
+	Global("C0AlchemyRefreshStock","GLOBAL",1)
+THEN
+  RESPONSE #100
+    AddStoreItem("c0aupot1","c0apot01",3,0)
+    AddStoreItem("c0aupot1","c0apot02",3,0)
+    AddStoreItem("c0aupot1","c0apot03",3,0)
+    AddStoreItem("c0aupot1","c0apot04",3,0)
+	Continue()
+END
+
+IF
+	OnCreation()
+	ClassLevelGT(Lastsummonerof(Myself),ROGUE,5)
+	!ClassLevelGT(Lastsummonerof(Myself),ROGUE,8)
+	Global("C0AlchemyRefreshStock","GLOBAL",1)
+THEN
+  RESPONSE #100
+    AddStoreItem("c0aupot1","c0apot01",6,0)
+    AddStoreItem("c0aupot1","c0apot02",6,0)
+    AddStoreItem("c0aupot1","c0apot03",6,0)
+    AddStoreItem("c0aupot1","c0apot04",6,0)
+    AddStoreItem("c0aupot1","c0apot05",3,0)
+    AddStoreItem("c0aupot1","c0apot06",3,0)
+    AddStoreItem("c0aupot1","c0apot07",3,0)
+	Continue()
+END
+
+IF
+	OnCreation()
+	ClassLevelGT(Lastsummonerof(Myself),ROGUE,8)
+	!ClassLevelGT(Lastsummonerof(Myself),ROGUE,11)
+	Global("C0AlchemyRefreshStock","GLOBAL",1)
+THEN
+  RESPONSE #100
+    AddStoreItem("c0aupot1","c0apot01",9,0)
+    AddStoreItem("c0aupot1","c0apot02",9,0)
+    AddStoreItem("c0aupot1","c0apot03",9,0)
+    AddStoreItem("c0aupot1","c0apot04",9,0)
+    AddStoreItem("c0aupot1","c0apot05",6,0)
+    AddStoreItem("c0aupot1","c0apot06",6,0)
+    AddStoreItem("c0aupot1","c0apot07",6,0)
+    AddStoreItem("c0aupot1","c0apot08",3,0)
+    AddStoreItem("c0aupot1","c0apot09",3,0)
+    AddStoreItem("c0aupot1","c0apot10",3,0)
+	Continue()
+END
+
+IF
+	OnCreation()
+	ClassLevelGT(Lastsummonerof(Myself),ROGUE,11)
+	!ClassLevelGT(Lastsummonerof(Myself),ROGUE,14)
+	Global("C0AlchemyRefreshStock","GLOBAL",1)
+THEN
+  RESPONSE #100
+    AddStoreItem("c0aupot1","c0apot01",16,0)
+    AddStoreItem("c0aupot1","c0apot02",16,0)
+    AddStoreItem("c0aupot1","c0apot03",16,0)
+    AddStoreItem("c0aupot1","c0apot04",16,0)
+    AddStoreItem("c0aupot1","c0apot05",9,0)
+    AddStoreItem("c0aupot1","c0apot06",9,0)
+    AddStoreItem("c0aupot1","c0apot07",9,0)
+    AddStoreItem("c0aupot1","c0apot08",6,0)
+    AddStoreItem("c0aupot1","c0apot09",6,0)
+    AddStoreItem("c0aupot1","c0apot10",6,0)
+    AddStoreItem("c0aupot1","c0apot11",3,0)
+    AddStoreItem("c0aupot1","c0apot12",3,0)
+    AddStoreItem("c0aupot1","c0apot13",3,0)
+	Continue()
+END
+
+IF
+	OnCreation()
+	ClassLevelGT(Lastsummonerof(Myself),ROGUE,14)
+	!ClassLevelGT(Lastsummonerof(Myself),ROGUE,17)
+	Global("C0AlchemyRefreshStock","GLOBAL",1)
+THEN
+  RESPONSE #100
+    AddStoreItem("c0aupot1","c0apot01",15,0)
+    AddStoreItem("c0aupot1","c0apot02",15,0)
+    AddStoreItem("c0aupot1","c0apot03",15,0)
+    AddStoreItem("c0aupot1","c0apot04",15,0)
+    AddStoreItem("c0aupot1","c0apot05",16,0)
+    AddStoreItem("c0aupot1","c0apot06",16,0)
+    AddStoreItem("c0aupot1","c0apot07",16,0)
+    AddStoreItem("c0aupot1","c0apot08",9,0)
+    AddStoreItem("c0aupot1","c0apot09",9,0)
+    AddStoreItem("c0aupot1","c0apot10",9,0)
+    AddStoreItem("c0aupot1","c0apot11",6,0)
+    AddStoreItem("c0aupot1","c0apot12",6,0)
+    AddStoreItem("c0aupot1","c0apot13",6,0)
+    AddStoreItem("c0aupot1","c0apot14",3,0)
+    AddStoreItem("c0aupot1","c0apot15",3,0)
+    AddStoreItem("c0aupot1","c0apot16",3,0)
+	Continue()
+END
+
+IF
+	OnCreation()
+	ClassLevelGT(Lastsummonerof(Myself),ROGUE,17)
+	!ClassLevelGT(Lastsummonerof(Myself),ROGUE,20)
+	Global("C0AlchemyRefreshStock","GLOBAL",1)
+THEN
+  RESPONSE #100
+    AddStoreItem("c0aupot1","c0apot01",15,0)
+    AddStoreItem("c0aupot1","c0apot02",15,0)
+    AddStoreItem("c0aupot1","c0apot03",15,0)
+    AddStoreItem("c0aupot1","c0apot04",15,0)
+    AddStoreItem("c0aupot1","c0apot05",15,0)
+    AddStoreItem("c0aupot1","c0apot06",15,0)
+    AddStoreItem("c0aupot1","c0apot07",15,0)
+    AddStoreItem("c0aupot1","c0apot08",16,0)
+    AddStoreItem("c0aupot1","c0apot09",16,0)
+    AddStoreItem("c0aupot1","c0apot10",16,0)
+    AddStoreItem("c0aupot1","c0apot11",9,0)
+    AddStoreItem("c0aupot1","c0apot12",9,0)
+    AddStoreItem("c0aupot1","c0apot13",9,0)
+    AddStoreItem("c0aupot1","c0apot14",6,0)
+    AddStoreItem("c0aupot1","c0apot15",6,0)
+    AddStoreItem("c0aupot1","c0apot16",6,0)
+    AddStoreItem("c0aupot1","c0apot17",3,0)
+    AddStoreItem("c0aupot1","c0apot18",3,0)
+    AddStoreItem("c0aupot1","c0apot19",3,0)
+	Continue()
+END
+
+IF
+	OnCreation()
+	ClassLevelGT(Lastsummonerof(Myself),ROGUE,20)
+	!ClassLevelGT(Lastsummonerof(Myself),ROGUE,23)
+	Global("C0AlchemyRefreshStock","GLOBAL",1)
+THEN
+  RESPONSE #100
+    AddStoreItem("c0aupot1","c0apot01",15,0)
+    AddStoreItem("c0aupot1","c0apot02",15,0)
+    AddStoreItem("c0aupot1","c0apot03",15,0)
+    AddStoreItem("c0aupot1","c0apot04",15,0)
+    AddStoreItem("c0aupot1","c0apot05",15,0)
+    AddStoreItem("c0aupot1","c0apot06",15,0)
+    AddStoreItem("c0aupot1","c0apot07",15,0)
+    AddStoreItem("c0aupot1","c0apot08",15,0)
+    AddStoreItem("c0aupot1","c0apot09",15,0)
+    AddStoreItem("c0aupot1","c0apot10",15,0)
+    AddStoreItem("c0aupot1","c0apot11",16,0)
+    AddStoreItem("c0aupot1","c0apot12",16,0)
+    AddStoreItem("c0aupot1","c0apot13",16,0)
+    AddStoreItem("c0aupot1","c0apot14",9,0)
+    AddStoreItem("c0aupot1","c0apot15",9,0)
+    AddStoreItem("c0aupot1","c0apot16",9,0)
+    AddStoreItem("c0aupot1","c0apot17",6,0)
+    AddStoreItem("c0aupot1","c0apot18",6,0)
+    AddStoreItem("c0aupot1","c0apot19",6,0)
+    AddStoreItem("c0aupot1","c0apot20",3,0)
+    AddStoreItem("c0aupot1","c0apot21",3,0)
+    AddStoreItem("c0aupot1","c0apot22",3,0)
+	Continue()
+END
+
+IF
+	OnCreation()
+	ClassLevelGT(Lastsummonerof(Myself),ROGUE,23)
+	!ClassLevelGT(Lastsummonerof(Myself),ROGUE,26)
+	Global("C0AlchemyRefreshStock","GLOBAL",1)
+THEN
+  RESPONSE #100
+    AddStoreItem("c0aupot1","c0apot01",15,0)
+    AddStoreItem("c0aupot1","c0apot02",15,0)
+    AddStoreItem("c0aupot1","c0apot03",15,0)
+    AddStoreItem("c0aupot1","c0apot04",15,0)
+    AddStoreItem("c0aupot1","c0apot05",15,0)
+    AddStoreItem("c0aupot1","c0apot06",15,0)
+    AddStoreItem("c0aupot1","c0apot07",15,0)
+    AddStoreItem("c0aupot1","c0apot08",15,0)
+    AddStoreItem("c0aupot1","c0apot09",15,0)
+    AddStoreItem("c0aupot1","c0apot10",15,0)
+    AddStoreItem("c0aupot1","c0apot11",15,0)
+    AddStoreItem("c0aupot1","c0apot12",15,0)
+    AddStoreItem("c0aupot1","c0apot13",15,0)
+    AddStoreItem("c0aupot1","c0apot14",16,0)
+    AddStoreItem("c0aupot1","c0apot15",16,0)
+    AddStoreItem("c0aupot1","c0apot16",16,0)
+    AddStoreItem("c0aupot1","c0apot17",9,0)
+    AddStoreItem("c0aupot1","c0apot18",9,0)
+    AddStoreItem("c0aupot1","c0apot19",9,0)
+    AddStoreItem("c0aupot1","c0apot20",6,0)
+    AddStoreItem("c0aupot1","c0apot21",6,0)
+    AddStoreItem("c0aupot1","c0apot22",6,0)
+	Continue()
+END
+
+IF
+	OnCreation()
+	ClassLevelGT(Lastsummonerof(Myself),ROGUE,26)
+	Global("C0AlchemyRefreshStock","GLOBAL",1)
+THEN
+  RESPONSE #100
+    AddStoreItem("c0aupot1","c0apot01",15,0)
+    AddStoreItem("c0aupot1","c0apot02",15,0)
+    AddStoreItem("c0aupot1","c0apot03",15,0)
+    AddStoreItem("c0aupot1","c0apot04",15,0)
+    AddStoreItem("c0aupot1","c0apot05",15,0)
+    AddStoreItem("c0aupot1","c0apot06",15,0)
+    AddStoreItem("c0aupot1","c0apot07",15,0)
+    AddStoreItem("c0aupot1","c0apot08",15,0)
+    AddStoreItem("c0aupot1","c0apot09",15,0)
+    AddStoreItem("c0aupot1","c0apot10",15,0)
+    AddStoreItem("c0aupot1","c0apot11",15,0)
+    AddStoreItem("c0aupot1","c0apot12",15,0)
+    AddStoreItem("c0aupot1","c0apot13",15,0)
+    AddStoreItem("c0aupot1","c0apot14",15,0)
+    AddStoreItem("c0aupot1","c0apot15",15,0)
+    AddStoreItem("c0aupot1","c0apot16",15,0)
+    AddStoreItem("c0aupot1","c0apot17",16,0)
+    AddStoreItem("c0aupot1","c0apot18",16,0)
+    AddStoreItem("c0aupot1","c0apot19",16,0)
+    AddStoreItem("c0aupot1","c0apot20",9,0)
+    AddStoreItem("c0aupot1","c0apot21",9,0)
+    AddStoreItem("c0aupot1","c0apot22",9,0)
+	Continue()
+END
+
+IF
+	Global("C0AUIN5","GLOBAL",1)
+	Global("C0AlchemyRefreshStock","GLOBAL",1)
+THEN
+  RESPONSE #100
+	AddStoreItem("c0aupoth","c0apoth1",3,0)
+	AddStoreItem("c0aupoth","c0apoth2",3,0)
+	AddStoreItem("c0aupoth","c0apoth3",3,0)
+	AddStoreItem("c0aupoth","c0apoth4",3,0)
+	Continue()
+END
+
+IF
+	Global("C0AUIN5","GLOBAL",1)
+	Global("C0UltimateMastery","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetGlobal("C0UltimateMastery","GLOBAL",1)
+	AddStoreItem("c0aupoth","c0apoth5",1,0)
+	Continue()
+END
+
+IF
+	Global("C0AuraKnowsBG1","GLOBAL",2)
+	Global("C0AlchemyRefreshStock","GLOBAL",1)
+THEN
+  RESPONSE #100
+	AddStoreItem("c0aubom1","c0abomba",3,0)
+	Continue()
+END
+
+IF
+	Global("C0AuraWallace","GLOBAL",2)
+	Global("C0AlchemyRefreshStock","GLOBAL",1)
+THEN
+  RESPONSE #100
+	AddStoreItem("c0aubom1","c0abombd",3,0)
+	Continue()
+END
+
+IF
+  !AreaType(CITY)
+  OR(2)
+  AreaType(DUNGEON)
+  AreaType(OUTDOOR)
+  Detect(Lastsummonerof(Myself))
+  !Global("C0ArtificerAlchemy","LOCALS",1)
+THEN
+  RESPONSE #100
+    FaceObject(Lastsummonerof(Myself))
+	ApplySpellRES("c0aualc1",Lastsummonerof(Myself))
+    StartDialogueNoSet(Lastsummonerof(Myself))
+	Continue()
+END
+
+IF
+  !AreaType(DUNGEON)
+  OR(2)
+  AreaType(CITY)
+  !AreaType(OUTDOOR)
+  Detect(Lastsummonerof(Myself))
+  !Global("C0ArtificerAlchemy","LOCALS",1)
+THEN
+  RESPONSE #100
+    FaceObject(Lastsummonerof(Myself))
+	ApplySpellRES("c0aualc3",Lastsummonerof(Myself))
+    StartDialogueNoSet(Lastsummonerof(Myself))
+	Continue()
+END
+
+IF
+  Global("C0ArtificerAlchemy","LOCALS",1)
+	Global("C0AlchemyRefreshStock","GLOBAL",1)
+THEN
+  RESPONSE #100
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",0)
+	ApplySpellRES("c0aualc2",Lastsummonerof(Myself))
+    DestroySelf()
+END
+
+IF
+  Global("C0ArtificerAlchemy","LOCALS",1)
+  !Global("C0AlchemyRefreshStock","GLOBAL",1)
+THEN
+  RESPONSE #100
+	ApplySpellRES("c0aualc2",Lastsummonerof(Myself))
+    DestroySelf()
+END

@@ -1,0 +1,41 @@
+IF
+	Global("C0MMinSpawn","ar1000",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinSpawn","ar1000",1)
+	CreateCreatureImpassable("C0MMin",[2470.285],SSW)
+	RealSetGlobalTimer("C0MMinSinging","ar1000",6)
+END
+
+IF
+	Global("C0MMinBegin","GLOBAL",0)
+	!BeenInParty("C0MMin")
+	!Allegiance("C0MMin",ENEMY)
+	!Dead("C0MMin")
+	RealGlobalTimerExpired("C0MMinSinging","ar1000")
+	Switch("C0MMinStart","ar1000")
+THEN
+  RESPONSE #0
+	DisplayStringHead("C0MMin",~*singing* "Upon the hearth the fire is red,
+Beneath the roof there is a bed;
+But not yet weary are our feet,
+Still round the corner we may meet,"~)
+	RealSetGlobalTimer("C0MMinSinging","ar1000",10)
+	SetGlobal("C0MMinStart","ar1000",1)
+  RESPONSE #1
+	DisplayStringHead("C0MMin",~*singing* "A sudden tree or standing stone
+That none have seen but we alone..."~)
+	RealSetGlobalTimer("C0MMinSinging","ar1000",5)
+	SetGlobal("C0MMinStart","ar1000",2)
+  RESPONSE #2
+	DisplayStringHead("C0MMin",~*singing* "Still round the corner there may wait
+A new road or a secret gate,
+And though we pass them by today,
+Tomorrow we may come this way,"~)
+	RealSetGlobalTimer("C0MMinSinging","ar1000",10)
+	SetGlobal("C0MMinStart","ar1000",3)
+  RESPONSE #3
+	DisplayStringHead("C0MMin",~*singing* "And take the hidden paths that run
+Towards the Moon or to the Sun..."~)
+	SetGlobal("C0MMinStart","ar1000",4)
+END

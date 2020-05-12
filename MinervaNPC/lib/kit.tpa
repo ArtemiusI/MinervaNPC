@@ -1,0 +1,822 @@
+///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////// KIT //////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+ADD_KIT ~C0ARFT~
+ // appended to CLASWEAP.2da
+ ~C0ARFT		1           1           1           1           1           1           1           1~
+ // appended column-wise to WEAPPROF.2da
+//11                                T   S           F   Q             S S
+//10                                W   C           L   U             W I
+//9                         B L S   O   I   W       A   A             O N
+//8                         A O H   H   M   A       I   R C   S       R G
+//7         L S           M S N O   A   I   R     H L   T R L H     2 D L 2                 E E E E E E E E E E E
+//6         _ _       S   I T G R   N K T D H     A M   E O O O     H A E W E E E E E E E E X X X X X X X X X X X
+//5         S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E X X X X X X X X T T T T T T T T T T T
+//4         W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A T T T T T T T T R R R R R R R R R R R
+//3         O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P R R R R R R R R A A A A A A A A A A A
+//2         R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
+//1         D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
+ ~C0ARFT	2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+ // appended to ABCLASRQ.2da
+ ~C0ARFT				9      9	0	15	0	0~
+ // appended to ABCLSMOD.2da
+ ~C0ARFT				0	0	0	0	0	0~
+ // appended to ABDCDSRQ.2da
+ ~C0ARFT                		0       0       0       0       0       0~
+ // appended to ABDCSCRQ.2da
+ ~C0ARFT                 	0       0       0       0       0	0~
+ // appended to ALIGNMNT.2da
+ ~C0ARFT                  	1       1       1       1      1	1       1       1       1~
+ // appended to DUALCLAS.2da
+ ~C0ARFT                  	0       0       0       0       0       0~
+ // path to your CLAB-style 2da file 
+ ~%MOD_FOLDER%/2da/C0ARFTCL.2da~
+ // PC races and classes allowed to use this kit, from KITTABLE.2da
+ ~~
+ // usability flags, added to the end of the KITLIST.2da entry
+ ~0x00000000     9~
+ // HLA table to use; see LUABBR.2da
+ ~C0ARFT~
+ // list of starting equipment for PCs starting in ToB. Appended column-wise to 25STWEAP.2da
+ ~CHAN09 * HELM07 BAG20 RING06 RING21 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+ // Lower, mixed, and help kit names and descriptions, added to KITLIST.2da
+  SAY ~fighter / artificer~
+  SAY ~Fighter / Artificer~
+  SAY ~FIGHTER/ARTIFICER: This character can use the abilities of a Fighter and an Artificer, though they cannot use their thieving skills while wearing more than studded leather armor. They may Specialize in, but usually not Master, any weapon they can use.
+ 
+ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge of historical, scientific and arcane lore, as well as the use of deadly alchemical traps and metal automatons.
+
+Advantages:
+– +30 bonus to Lore.
+– +10% bonus to Find Traps, Open Locks and Set Traps.
+– May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
+
+Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
+
+  ALCHEMIST'S FIRE: Trap damage increases to d6 and sets targets Aflame, dealing an additional 1d4 fire damage per round.
+  RAPID FREEZE: Targets become Slowed, suffering a -4 penalty to THAC0 and Armor Class.
+  ACIDIC COMPOUND: Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.
+  ELECTRIC CHARGE: Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.
+
+– May use the Advanced Alchemy ability at will.
+
+ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
+
+– From level 5 onwards, may create a Lantanese Autocannon once per day. Additional uses are gained at 10th and 15th level.
+
+– From level 8 onwards, may use the Craft Automaton ability once per day.
+
+CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
+
+– From level 20 onwards, gains Master Alchemist.
+
+MASTER ALCHEMIST: The master artificer may access a completely new level of alchemy, gaining the ability to craft Potions of Divine Might, Potions of Complete Healing, Potions of True Sight and Potions of Hardiness with their Advanced Alchemy ability. They also gain the ability to craft a single Potion of Ultimate Mastery once in their lifetime.
+
+– From level 24 onwards, gains Grand Artifice.
+
+GRAND ARTIFICE: The master artificer takes her craft beyond that of any regular artisan, ensuring that her allies' tools and skills are optimized. As long as the artificer is alive and within the party, all party members gain a +2 bonus to Armor Class and Saving Throws, +1 bonus to casting time, +25% to all thieving skills, and +10% critical hit chance.
+
+Disadvantages:
+– -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
+– No backstab multiplier.
+– May only distribute 20 skill points per level among thieving skills.~
+
+LAF fl#add_kit_ee
+  STR_VAR
+    kit_name = C0ARFT
+	backstab = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1~
+	sneakatt = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+	crippstr = ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~ 
+    clswpbon = ~1 0 2~
+	thiefskl = ~40 20~
+END
+
+LAF qd_multiclass
+	STR_VAR
+		kit_name = C0ARFT
+		kit_clab = C0ARFTCL
+		base_class = ~T~
+		mc_dir = ~%MOD_FOLDER%/2da~
+END
+
+COPY_EXISTING ~c0aukt1.spl~ ~override~
+LPF ADD_SPELL_EFFECT INT_VAR opcode = 290 target = 2 timing = 9 parameter1 = RESOLVE_STR_REF (~Artificer~) special = 4 END
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////// SPELLS //////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+COPY_EXISTING ~c0auin1.2da~ ~override~
+COPY_EXISTING ~c0auin1.spl~ ~override~
+SAY NAME1 ~Set Alchemical Snare~
+SAY NAME2 ~Set Alchemical Snare~
+SAY UNIDENTIFIED_DESC ~Set Alchemical Snare
+Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
+
+  ALCHEMIST'S FIRE: Trap damage increases to d6 and sets targets Aflame, dealing an additional 1d4 fire damage per round.
+  RAPID FREEZE: Targets become Slowed, suffering a -4 penalty to THAC0 and Armor Class.
+  ACIDIC COMPOUND: Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.
+  ELECTRIC CHARGE: Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.~
+
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap1.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap2.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap3.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap4.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap5.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap6.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap7.PRO~
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0atrap8.PRO~
+
+COPY_EXISTING ~c0atrap1.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap1%~
+END
+COPY_EXISTING ~c0atrap5.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap5%~
+END
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = FIRE
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
+  LPF ALTER_EFFECT
+    INT_VAR
+      match_opcode = 142
+	  parameter2 = c0aicon3
+END
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139
+        parameter1 		  = RESOLVE_STR_REF (~Aflame~)
+      END
+COPY_EXISTING ~c0auin1a.spl~ ~override~
+SAY NAME1 ~Set Alchemical Trap: Alchemist's Fire~
+SAY NAME2 ~Set Alchemical Trap: Alchemist's Fire~
+
+COPY_EXISTING ~c0atrap2.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap2%~
+END
+COPY_EXISTING ~c0atrap6.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap6%~
+END
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = COLD
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139
+        parameter1 		  = RESOLVE_STR_REF (~Slowed~)
+      END
+COPY_EXISTING ~c0auin1b.spl~ ~override~
+SAY NAME1 ~Set Alchemical Trap: Rapid Freezing Reagent~
+SAY NAME2 ~Set Alchemical Trap: Rapid Freezing Reagent~
+
+COPY_EXISTING ~c0atrap3.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap3%~
+END
+COPY_EXISTING ~c0atrap7.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap7%~
+END
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = ACID
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139
+        parameter1 		  = RESOLVE_STR_REF (~Corroded~)
+      END
+COPY_EXISTING ~c0auin1c.spl~ ~override~
+SAY NAME1 ~Set Alchemical Trap: Corrosive Acidic Compound~
+SAY NAME2 ~Set Alchemical Trap: Corrosive Acidic Compound~
+
+COPY_EXISTING ~c0atrap4.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap4%~
+END
+COPY_EXISTING ~c0atrap8.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0atrap8%~
+END
+		LPF	ADD_SPELL_EFFECT
+			INT_VAR
+				insert_point = 0
+				opcode = 324
+				target = 2
+				parameter2 = ELEC
+				duration = 1
+			STR_VAR
+				resource = EVAL ~%SOURCE_RES%~
+		END
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 142   // Display portrait icon
+        parameter2        = c0aicon6
+      END
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139
+        parameter1 		  = RESOLVE_STR_REF (~Shocked~)
+      END
+COPY_EXISTING ~c0aparal.spl~ ~override~
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139
+        parameter1 		  = RESOLVE_STR_REF (~Paralyzed~)
+      END
+COPY_EXISTING ~c0auin1d.spl~ ~override~
+SAY NAME1 ~Set Alchemical Trap: Conductive Fluid~
+SAY NAME2 ~Set Alchemical Trap: Conductive Fluid~
+
+COPY_EXISTING ~c0aualc.spl~ ~override~
+SAY NAME1 ~Advanced Alchemy~
+SAY NAME2 ~Advanced Alchemy~
+SAY UNIDENTIFIED_DESC ~Advanced Alchemy
+Lantanese artificers are exceptionally skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons equal to half of the artificer's level. The types of potions available for crafting increase with the artificer's level.
+
+This ability may be used an unlimited times per day, but the artificer's stock only refreshes after resting. Alchemy may not be performed while in combat.~
+
+COPY_EXISTING ~c0aualch.cre~ ~override~
+SAY NAME1 ~Alchemy~
+SAY NAME2 ~Alchemy~
+  WRITE_ASCII 0x248 ~c0aualch~ #8  //override script
+  WRITE_ASCII 0x280 ~c0aualch~ #32  //DV
+  WRITE_ASCII 0x2cc ~c0aualch~ #8   //pre-joining dialogue file
+  WRITE_ASCII 0x268 ~c0aualch~ #8   //default
+   WRITE_ASCII 0X34 ~c0aualch~ #8   //small portrait
+  COMPILE ~%MOD_FOLDER%/dialogue/c0aualch.d~
+  COMPILE ~%MOD_FOLDER%/scripts/c0aualch.baf~
+  
+COPY_EXISTING ~c0aualc1.spl~ ~override~
+COPY_EXISTING ~c0aualc2.spl~ ~override~
+COPY_EXISTING ~c0aualc3.spl~ ~override~
+  
+COPY_EXISTING ~c0autinv.sto~ ~override~
+SAY 0xc ~Clockwork Servant Automaton~
+
+COPY_EXISTING ~c0aupot1.sto~ ~override/c0aupot1.sto~
+SAY 0xc ~Alchemy - Standard Potions~
+  
+COPY_EXISTING ~c0aupot1.sto~ ~override/c0aubom1.sto~
+SAY 0xc ~Alchemy - Explosives~
+
+COPY_EXISTING ~c0aupot1.sto~ ~override/c0aupoth.sto~
+SAY 0xc ~Alchemy - Advanced Potions~
+
+ACTION_IF FILE_EXISTS_IN_GAME ~baldur.bcs~ THEN BEGIN
+EXTEND_TOP ~baldur.bcs~ ~%MOD_FOLDER%/scripts/baldur.baf~
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~bdbaldur.bcs~ THEN BEGIN
+EXTEND_TOP ~bdbaldur.bcs~ ~%MOD_FOLDER%/scripts/baldur.baf~
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~baldur25.bcs~ THEN BEGIN
+EXTEND_TOP ~baldur25.bcs~ ~%MOD_FOLDER%/scripts/baldur.baf~
+END
+
+COPY_EXISTING ~c0ausumm.cre~ ~override~
+  WRITE_ASCII 0x248 ~C0MSumm~ #8  //override script
+COPY_EXISTING ~c0auin3.spl~ ~override~
+SAY NAME1 ~Craft Automaton~
+SAY NAME2 ~Craft Automaton~
+SAY UNIDENTIFIED_DESC ~Craft Automaton
+The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed and cannot be controlled but will defend their creators, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed.
+
+Only one automaton can be controlled at any given time.~
+
+COPY_EXISTING ~c0auin4.spl~ ~override~
+SAY NAME1 ~Craft Wand~
+SAY NAME2 ~Craft Wand~
+SAY UNIDENTIFIED_DESC ~Craft Wand
+The master artificer may use this ability at will to craft a variety of magical wands at a cost.
+
+Requires: Use Any Item~
+COPY_EXISTING ~c0aualch.cre~ ~override/c0auin4.cre~
+SAY NAME1 ~Wandcrafting~
+SAY NAME2 ~Wandcrafting~
+  WRITE_ASCII 0x248 ~c0auin4~ #8  //override script
+  WRITE_ASCII 0x280 ~c0auin4~ #32  //DV
+  WRITE_ASCII 0x2cc ~c0auin4~ #8   //pre-joining dialogue file
+  WRITE_ASCII 0x268 ~c0auin4~ #8   //default
+COPY_EXISTING ~c0auin5.spl~ ~override~
+SAY NAME1 ~Master Alchemist~
+SAY NAME2 ~Master Alchemist~
+SAY UNIDENTIFIED_DESC ~Master Alchemist
+The master artificer may access a completely new level of alchemy, gaining the ability to craft Potions of Divine Might, Potions of Complete Healing, Potions of True Sight and Potions of Hardiness with their Advanced Alchemy ability. They also gain the ability to craft a single Potion of Ultimate Mastery once in their lifetime.~
+
+COPY_EXISTING ~c0auin6.spl~ ~override~
+      LPF ALTER_EFFECT
+      INT_VAR
+        check_globals     = 0
+        check_headers     = 1
+        match_opcode      = 142   // Display portrait icon
+        match_parameter2  = 82    // Called Shot icon
+        parameter2        = c0aicon5
+      END
+SAY NAME1 ~Grand Artifice~
+SAY NAME2 ~Grand Artifice~
+SAY UNIDENTIFIED_DESC ~Grand Artifice
+The master artificer takes her craft beyond that of any regular artisan, ensuring that her allies' tools and skills are optimized. As long as the artificer is alive and within the party, all party members gain a +2 bonus to Armor Class and Saving Throws, +1 bonus to casting time, +25% to all thieving skills, and +10% critical hit chance.
+
+Requires: Use Any Item~
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////// POTIONS /////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+COPY_EXISTING ~c0apot01.spl~ ~override~
+SAY NAME1 ~Potion of Renewal~
+SAY NAME2 ~Potion of Renewal~
+COPY_EXISTING ~c0apot01.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Renewal~
+SAY NAME2 ~Lantanese Potion of Renewal~
+SAY DESC ~This potion is composed of several exotic medicinal herbs and alchemical ingredients, giving it significant healing properties.
+
+STATISTICS:
+
+Special: Restores 30% of maximum Hit Points and cures all poisons and diseases.
+
+Weight: 1~
+WRITE_LONG 0x34 200
+ 
+COPY_EXISTING ~c0apot02.spl~ ~override~
+SAY NAME1 ~Potion of Fire Resistance~
+SAY NAME2 ~Potion of Fire Resistance~
+COPY_EXISTING ~c0apot02.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Fire Resistance~
+SAY NAME2 ~Lantanese Potion of Fire Resistance~
+SAY DESC ~This exotic potion provides the imbiber with a significant resistance to heat. Those who drink this potion would be capable of leaping through a wall of flame without suffering the slightest injury.
+
+STATISTICS:
+
+Fire Resistance: +100%
+Special: Fire Resistance decreases by 10% per round to a minimum of 50% after 5 rounds.
+Duration: 2 hours
+
+Weight: 1~
+WRITE_LONG 0x34 250
+
+COPY_EXISTING ~c0apot03.spl~ ~override~
+SAY NAME1 ~Potion of Cold Resistance~
+SAY NAME2 ~Potion of Cold Resistance~
+COPY_EXISTING ~c0apot03.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Cold Resistance~
+SAY NAME2 ~Lantanese Potion of Cold Resistance~
+SAY DESC ~This potion was designed for Lantanese researchers to allow them to survive at near-fatally low temperatures while experimenting with certain cold-dwelling creatures or plants. Those who drink this potion find themselves in a state of perpetual warmth.
+
+STATISTICS:
+
+Cold Resistance: +100%
+Special: Cold Resistance decreases by 10% per round to a minimum of 50% after 5 rounds.
+Duration: 2 hours
+
+Weight: 1~
+WRITE_LONG 0x34 250
+
+COPY_EXISTING ~c0apot04.spl~ ~override~
+SAY NAME1 ~Philter of Health~
+SAY NAME2 ~Philter of Health~
+COPY_EXISTING ~c0apot04.itm~ ~override~
+SAY NAME1 ~Lantanese Philter of Health~
+SAY NAME2 ~Lantanese Philter of Health~
+SAY DESC ~This phial contains a highly nutritious and energy-rich liquid, designed to allow travellers to go on long journeys without the need for food or rest for an entire day.
+
+STATISTICS:
+
+Maximum Hit Points: +10%
+Special: Removes fatigue
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 160
+
+COPY_EXISTING ~c0apot05.spl~ ~override~
+SAY NAME1 ~Potion of Invisibility~
+SAY NAME2 ~Potion of Invisibility~
+COPY_EXISTING ~c0apot05.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Invisibility~
+SAY NAME2 ~Lantanese Potion of Invisibility~
+SAY DESC ~The natives of Lantan are known for being relatively pacifistic and prefer to avoid conflict wherever possible. To this end, their potions of invisibility are among the most popular of their alchemical creations, as it allows them to escape nearly any situation completely unscathed.
+
+STATISTICS:
+
+Special: Invisibility and Non-Detection
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 180
+
+COPY_EXISTING ~c0apot06.spl~ ~override~
+SAY NAME1 ~Trollblood Extract~
+SAY NAME2 ~Trollblood Extract~
+COPY_EXISTING ~c0apot06.itm~ ~override~
+SAY NAME1 ~Lantanese Trollblood Extract~
+SAY NAME2 ~Lantanese Trollblood Extract~
+SAY DESC ~As foul-looking as this liquid appears to be, it has the undeniably effective property of bestowing its drinker with cellular regeneration of shocking rates. However, the concoction also temporarily bestows some of the weaknesses of trollkin as a result.
+
+STATISTICS:
+
+Fire Resistance: -50%
+Acid Resistance: -50%
+Special: Regenerate two hit points per second
+Duration: 5 rounds
+
+Weight: 1~
+WRITE_LONG 0x34 500
+
+COPY_EXISTING ~c0apot07.spl~ ~override~
+SAY NAME1 ~Tonic of Alertness~
+SAY NAME2 ~Tonic of Alertness~
+COPY_EXISTING ~c0apot07.itm~ ~override~
+SAY NAME1 ~Lantanese Tonic of Alertness~
+SAY NAME2 ~Lantanese Tonic of Alertness~
+SAY DESC ~This strongly-scented potion puts its drinker into a state of constant and total awareness, to the point where they can hear the slightest movement and practically see out of the back of their heads.
+
+STATISTICS:
+
+Dexterity: +1
+Find Traps: +25%
+Detect Illusions: +25%
+Special: Immunity to backstab
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 500
+
+COPY_EXISTING ~c0apot08.spl~ ~override~
+SAY NAME1 ~Elixir of Harmony~
+SAY NAME2 ~Elixir of Harmony~
+COPY_EXISTING ~c0apot08.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Harmony~
+SAY NAME2 ~Lantanese Elixir of Harmony~
+SAY DESC ~This powerful potion subscribes to the principle of "the best offense is a good defense". The drinker becomes nearly invulnerable to physical harm, yet finds their own blows significantly weakened in return.
+
+STATISTICS:
+
+Armor Class: +6
+Physical Resistance: +50%
+Special: Damage output is reduced by 50%
+Duration: 5 rounds
+
+Weight: 1~
+WRITE_LONG 0x34 600
+
+COPY_EXISTING ~c0apot09.spl~ ~override~
+SAY NAME1 ~Potion of Antimagic~
+SAY NAME2 ~Potion of Antimagic~
+COPY_EXISTING ~c0apot09.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Antimagic~
+SAY NAME2 ~Lantanese Potion of Antimagic~
+SAY DESC ~This powerful potion expunges all traces of magic from its imbiber and prevents them from being affected by all but the most powerful spells until its effects dissipate.
+
+STATISTICS:
+
+Magic Resistance: +50%
+Special: Immunity to spells of 5th level and below, all spell effects are removed from the imbiber and <PRO_HESHE> may not cast spells for the duration.
+Duration: 2 rounds
+
+Weight: 1~
+WRITE_LONG 0x34 1000
+
+COPY_EXISTING ~c0apot10.spl~ ~override~
+SAY NAME1 ~Potion of Equanimity~
+SAY NAME2 ~Potion of Equanimity~
+COPY_EXISTING ~c0apot10.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Equanimity~
+SAY NAME2 ~Lantanese Potion of Equanimity~
+SAY DESC ~This potion clears the drinker's mind of distracting and inhibiting thoughts, allowing them to think and act with greater efficiency. Their hand-eye coordination is also significantly improved as a result.
+
+STATISTICS:
+
+Special: Prevents feeblemind, confusion, fear, and charm
+Intelligence: +4
+Dexterity: +4
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 900
+
+COPY_EXISTING ~c0apot11.spl~ ~override~
+SAY NAME1 ~Oil of Speed~
+SAY NAME2 ~Oil of Speed~
+COPY_EXISTING ~c0apot11.itm~ ~override~
+SAY NAME1 ~Lantanese Oil of Speed~
+SAY NAME2 ~Lantanese Oil of Speed~
+SAY DESC ~This oil, when applied on the user, hastens their actions greatly, doubling their movement and combat capacities. However, this does not reduce spellcasting time.
+
+STATISTICS:
+
+Special: Doubles movement and attack rates
+Duration: 1 turn
+
+Weight: 1~
+WRITE_LONG 0x34 300
+
+COPY_EXISTING ~c0apot12.spl~ ~override~
+SAY NAME1 ~Potion of Invulnerability~
+SAY NAME2 ~Potion of Invulnerability~
+COPY_EXISTING ~c0apot12.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Invulnerability~
+SAY NAME2 ~Lantanese Potion of Invulnerability~
+SAY DESC ~This potion confers very high resistance to all attacks while giving bonuses to all Saving Throws. Unlike regular Potions of Invulnerability, this potion can be used by those of any profession.
+
+STATISTICS:
+
+Armor Class: +2
+Saving Throws: +5
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 700
+
+COPY_EXISTING ~c0apot13.spl~ ~override~
+SAY NAME1 ~Philter of Luck~
+SAY NAME2 ~Philter of Luck~
+COPY_EXISTING ~c0apot13.itm~ ~override~
+SAY NAME1 ~Lantanese Philter of Luck~
+SAY NAME2 ~Lantanese Philter of Luck~
+SAY DESC ~Also known informally as 'liquid luck', this gold-colored liquid provides the drinker with an sense of temporary luck and confidence, as though nothing could go wrong.
+
+STATISTICS:
+
+Saving Throws: +2
+Find Traps: +10%
+Pick Pockets: +10%
+Move Silently: +10%
+Hide In Shadows: +10%
+Detect Illusion: +10%
+Set Traps: +10%
+Luck: +2
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 1000
+
+COPY_EXISTING ~c0apot14.spl~ ~override~
+SAY NAME1 ~Elixir of Restoration~
+SAY NAME2 ~Elixir of Restoration~
+COPY_EXISTING ~c0apot14.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Restoration~
+SAY NAME2 ~Lantanese Elixir of Restoration~
+SAY DESC ~This elixir was designed and patented by the Lantanese priesthood of Gond. Concocted from several restorative ingredients and a dash of holy water, it is effective against the draining touch of vampires and wights.
+
+STATISTICS:
+
+Special: Restores lost levels
+Duration: Permanent
+
+Weight: 1~
+WRITE_LONG 0x34 150
+
+COPY_EXISTING ~c0apot15.spl~ ~override~
+SAY NAME1 ~Potion of Freedom~
+SAY NAME2 ~Potion of Freedom~
+COPY_EXISTING ~c0apot15.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Freedom~
+SAY NAME2 ~Lantanese Potion of Freedom~
+SAY DESC ~This potion acts like the spell Free Action when consumed. The drinker becomes completely immune to any effects that influence action or movement, whether it is magical in origin or not.
+
+STATISTICS:
+
+Special: Free Action
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 450
+
+COPY_EXISTING ~c0apot16.spl~ ~override~
+SAY NAME1 ~Elixir of Lifeshield~
+SAY NAME2 ~Elixir of Lifeshield~
+COPY_EXISTING ~c0apot16.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Lifeshield~
+SAY NAME2 ~Lantanese Elixir of Lifeshield~
+SAY DESC ~This elixir was designed and patented by the Lantanese priesthood of Gond. The drinker's soul becomes protected by magical energies, preventing it from being separated from their body through unnatural means.
+
+STATISTICS:
+
+Special: Death Ward
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 500
+
+COPY_EXISTING ~c0apot17.spl~ ~override~
+SAY NAME1 ~Elixir of Might~
+SAY NAME2 ~Elixir of Might~
+COPY_EXISTING ~c0apot17.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Might~
+SAY NAME2 ~Lantanese Elixir of Might~
+SAY DESC ~This elixir was concocted from a combination of various ingredients including giants' blood. When imbibed, the drinker's strength increases dramatically.
+
+STATISTICS:
+
+Strength: +2
+Duration: 1 hour
+
+Weight: 1~
+WRITE_LONG 0x34 500
+
+COPY_EXISTING ~c0apot18.spl~ ~override~
+SAY NAME1 ~Thrym Extract~
+SAY NAME2 ~Thrym Extract~
+COPY_EXISTING ~c0apot18.itm~ ~override~
+SAY NAME1 ~Lantanese Thrym Extract~
+SAY NAME2 ~Lantanese Thrym Extract~
+SAY DESC ~This thick liquid is harvested and distilled from the glands of dead polar worms.  It is the substance that helps keep the huge creatures warm in the desolate north.  Drinking the liquid straight from the creature's body is almost always fatal, so alchemists attempt to distill the substance until it is relatively safe to consume.  Even in its current state, however, it can still be deadly.
+
+STATISTICS:
+
+Special: Imbiber takes 8d6 fire damage (Save vs. Death at -4 for half damage) in exchange for immunity to cold damage and +3 to Strength and Dexterity
+Duration: 1 turn
+
+Weight: 1~
+WRITE_LONG 0x34 600
+
+COPY_EXISTING ~c0apot19.spl~ ~override~
+SAY NAME1 ~Potion of Etherealness~
+SAY NAME2 ~Potion of Etherealness~
+COPY_EXISTING ~c0apot19.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Etherealness~
+SAY NAME2 ~Lantanese Potion of Etherealness~
+SAY DESC ~This potion is composed of ectoplasm and dust from will-o'-wisps. The drinker takes on some of their ghostly properties, temporarily becoming ethereal.
+
+STATISTICS:
+
+Special: Imbiber becomes ethereal for 5 rounds. While in this state <PRO_HESHE> is immune to normal weapons and gains 20% magic resistance. Spells and weapons may still be used.
+Duration: 1 turn
+
+Weight: 1~
+WRITE_LONG 0x34 700
+
+COPY_EXISTING ~c0apot20.spl~ ~override~
+SAY NAME1 ~Elixir of Focus~
+SAY NAME2 ~Elixir of Focus~
+COPY_EXISTING ~c0apot20.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Focus~
+SAY NAME2 ~Lantanese Elixir of Focus~
+SAY DESC ~This potion temporarily sharpens the drinker's senses to their absolute limit, making them feel as if time has stopped for a brief duration. However, they will find it nearly impossible to take action during this state.
+
+STATISTICS:
+
+Special: Imbiber may move freely for one round while others are frozen in time. The imbiber may not attack or use spells while in this state.
+Duration: 1 round
+
+Weight: 1~
+WRITE_LONG 0x34 700
+
+COPY_EXISTING ~c0apot21.spl~ ~override~
+SAY NAME1 ~Potion of Life Transference~
+SAY NAME2 ~Potion of Life Transference~
+COPY_EXISTING ~c0apot21.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Life Transference~
+SAY NAME2 ~Lantanese Potion of Life Transference~
+SAY DESC ~This dangerous potion sacrifices vitality for power. The drinker finds <PRO_HISHER> strength dramatically increased at the cost of their health.
+
+STATISTICS:
+
+Strength: +6
+Maximum Hit Points: -50%
+Duration: 8 hours
+
+Weight: 1~
+WRITE_LONG 0x34 1200
+
+COPY_EXISTING ~c0apot22.spl~ ~override~
+SAY NAME1 ~Philter of Arcane Barrier~
+SAY NAME2 ~Philter of Arcane Barrier~
+COPY_EXISTING ~c0apot22.itm~ ~override~
+SAY NAME1 ~Lantanese Philter of Arcane Barrier~
+SAY NAME2 ~Lantanese Philter of Arcane Barrier~
+SAY DESC ~This potion causes the drinker's very skin itself to repel magical energies, making them all but immune to the majority of spells. However, they may still cast their own spells if they so choose.
+
+STATISTICS:
+
+Damage Resistance: +75% against all forms of magical non-physical damage
+Special: All Saving Throws are automatically successful
+Duration: 3 turns
+
+Weight: 1~
+WRITE_LONG 0x34 1500
+
+COPY_EXISTING ~c0apoth1.itm~ ~override~
+SAY NAME1 ~Lantanese Elixir of Divine Might~
+SAY NAME2 ~Lantanese Elixir of Divine Might~
+SAY DESC ~Elixirs of Divine Might increase the imbiber's Strength, Dexterity and Constitution by four points each for ten rounds.~
+WRITE_LONG 0x34 2000
+
+COPY_EXISTING ~c0apoth2.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Complete Healing~
+SAY NAME2 ~Lantanese Potion of Complete Healing~
+SAY DESC ~Potions of Complete Healing are the ultimate healing potion, fully restoring the imbiber's hit points and curing all diseases, poisons and mental injuries.~
+WRITE_LONG 0x34 2000
+
+COPY_EXISTING ~c0apoth3.itm~ ~override~
+SAY NAME1 ~Lantanese Philter of Truth~
+SAY NAME2 ~Lantanese Philter of Truth~
+SAY DESC ~Philters of Truth allow the imbiber to see through and dispel all illusions in their line of sight for ten rounds.~
+WRITE_LONG 0x34 2000
+
+COPY_EXISTING ~c0apoth4.itm~ ~override~
+SAY NAME1 ~Lantanese Tonic of Hardiness~
+SAY NAME2 ~Lantanese Tonic of Hardiness~
+SAY DESC ~Tonics of Hardiness toughen the imbiber's skin to the hardness of steel, providing 40% resistance to physical damage for ten rounds.~
+WRITE_LONG 0x34 2000
+
+COPY_EXISTING ~c0apoth5.spl~ ~override~
+  LPF ALTER_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 139 // display string
+	  parameter1 = RESOLVE_STR_REF (~Permanent Ability Increase~)
+  END
+SAY NAME1 ~Ultimate Mastery~
+COPY_EXISTING ~c0apoth5.itm~ ~override~
+SAY NAME1 ~Lantanese Potion of Ultimate Mastery~
+SAY NAME2 ~Lantanese Potion of Ultimate Mastery~
+SAY DESC ~A Potion of Ultimate Mastery permanently enhances the imbiber's skills in their chosen profession.
+
+   - Mages and Bards gain +2 to Intelligence.
+   - Clerics and Druids gain +2 to Wisdom.
+   - Thieves and Monks gain +2 to Dexterity.
+   - Fighters, Rangers and Paladins gain +2 to Strength.
+   - Sorcerers and Shamans gain +2 to Constitution.
+   - Spellcasting classes take precedence over warrior classes.
+   - Arcane classes take precedence over divine classes.~
+WRITE_LONG 0x34 15000
+
+  COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0au#at1.baf~
+COPY ~%MOD_FOLDER%/creatures/c0au#at1.cre~ ~override~
+WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_AUTOCANNON~))
+WRITE_ASCII SCRIPT_DEFAULT ~c0au#at1~  // override
+WRITE_ASCII DEATHVAR ~c0au#at1~ // death variable
+SAY NAME1 ~Lantan Autocannon~
+SAY NAME2 ~Lantan Autocannon~
+
+ADD_PROJECTILE ~%MOD_FOLDER%/spells/pro/c0au#sp2.PRO~
+COPY_EXISTING ~c0au#s1.spl~ ~override~
+SAY NAME1 ~Create Autocannon~
+SAY UNIDENTIFIED_DESC ~Create Autocannon
+The Lantanese Autocannon is a weaponized contraption created by artificers with magical training. Built from durable metals, the autocannon makes up for what it lacks in mobility with power, unleashing bolts of fire against victims at rapid speed, making it a valuable defensive weapon. Due to the enchantments placed upon the autocannon, it becomes active upon sensing enemies of its creator, upon which it will attack relentlessly until the magic that animates it is fully spent. Due to its efficient design, the autocannon is portable and quick to set up.
+
+With this ability, an artificer may attempt to create a Lantanese Autocannon in the targeted location. The success of the ability is dependent on the artificer's Set Traps skill. This autocannon will become active upon an enemy creature entering its range. The autocannon is immobile and attacks five times per round with fiery missiles dealing 1d3+1 damage per missile with a +6 enchantment. Automatons have a 5% chance per round of becoming charged, granting a +4 bonus to THAC0 and doubling their attacks per round for six seconds.
+
+For each 15 points of Set Traps above 100 from the artificer, autocannons gain a +1 bonus to THAC0 and +5 bonus hit points.
+
+Once activated, autocannons last for two turns.~
+COPY_EXISTING ~c0au#s2.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0au#sp2%~
+END

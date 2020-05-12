@@ -1,0 +1,28 @@
+// CROSSMOD - URCHIN REST BANTER
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!See([ENEMY])
+	AreaType(OUTDOOR)
+	OR(2)
+	TimeOfDay(NIGHT)
+	TimeOfDay(DUSK)
+	CombatCounter(0)
+	GlobalGT("Chapter","GLOBAL",2)
+	Global("C0MMinRomanceActive","GLOBAL",1)
+	Global("C0MMinRomanceTalk1","GLOBAL",0)
+THEN
+  RESPONSE #100
+	StartCutSceneMode()
+	CutSceneId("C0MMin")
+	FadeToColor([20.0],0)
+	Wait(2)
+	FadeFromColor([20.0],0)
+	Wait(2)
+	PlaySong(0)
+	PlaySound("C0MMSONG")
+    SetGlobal("C0MMinRomanceTalk1","GLOBAL",1)
+	StartDialogueNoSet("L#URCHIN")
+END

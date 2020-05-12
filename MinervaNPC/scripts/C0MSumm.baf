@@ -1,0 +1,37 @@
+IF
+  Global("C0AutoCreated", "GLOBAL", 1)
+  Dead("C0MODR")
+THEN RESPONSE #100
+  SetGlobal("C0AutoCreated", "GLOBAL", 0)
+  Continue()
+END
+
+IF
+  Global("C0AutoCreated", "GLOBAL", 0)
+THEN RESPONSE #100
+  SetInterrupt(FALSE)
+  SetGlobal("SPRITE_IS_DEADC0MODR","GLOBAL",0)
+  SetGlobal("C0AutoCreated", "GLOBAL", 1)
+  ActionOverride(LastSummonerOf(Myself),ReallyForceSpellRES("c0auin3a",Myself))
+  SetInterrupt(TRUE)
+  DestroySelf()
+END
+
+IF
+  Global("C0AutoCreated", "GLOBAL", 1)
+  !Dead("C0MODR")
+  InMyArea("C0MODR")
+THEN RESPONSE #100
+	DisplayString(LastSummonerOf(Myself),~Quartus is already currently active.~)
+	DestroySelf()
+END
+
+IF
+  Global("C0AutoCreated", "GLOBAL", 1)
+  !Dead("C0MODR")
+  !InMyArea("C0MODR")
+THEN RESPONSE #100
+	MoveGlobalObject("C0MODR","C0Aura")
+	DisplayString(LastSummonerOf(Myself),~Quartus is already currently active.~)
+	DestroySelf()
+END

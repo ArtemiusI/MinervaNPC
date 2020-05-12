@@ -1,0 +1,448 @@
+//AUDIO
+
+LAF HANDLE_AUDIO END
+
+DEFINE_PATCH_FUNCTION ~GET_2DA_ROW~
+	INT_VAR
+		starting_row=0
+		numcolumns=0
+		match_column=0
+		found_it=0
+	STR_VAR
+		match=~DEFA~
+	RET
+		numcols
+		matched
+BEGIN
+		COUNT_2DA_ROWS numcolumns numrows
+		FOR (i = starting_row; i < numrows; ++i) BEGIN
+			READ_2DA_ENTRY i match_column numcolumns string_to_match
+			PATCH_IF (~%string_to_match%~ STRING_EQUAL_CASE ~%match%~) BEGIN
+				matched = i
+				found_it = 1
+				i = numrows
+
+			END
+		END
+		numcols = numcolumns
+		PATCH_IF (found_it = 0) BEGIN
+			PATCH_FAIL ~GET_2DA_ROW: Could not find a row that contains %match% in column %match_column%.~
+		END
+END
+	
+ADD_MUSIC ~C0MMMUS~ ~%MOD_FOLDER%/music/C0MMMUS.mus~
+COPY ~%MOD_FOLDER%/music/c0mmmusa.acm~ ~MUSIC/C0MMMUS/c0mmmusa.acm~
+
+COPY_EXISTING ~SONGLIST.2da~ ~override~
+	LPF GET_2DA_ROW INT_VAR numcolumns=3 match_column=2 STR_VAR match=~C0MMMUS.mus~ RET therow=matched END
+	READ_2DA_ENTRY therow 0 3 ~song~
+
+	OUTER_SET C0MMMUS = song
+
+///////////////
+// CREATURES //
+///////////////
+
+// SINGLE-CLASS ARTIFICER
+COPY ~%MOD_FOLDER%/creatures/C0MMin.cre~ ~override~
+  SAY NAME1 ~Minerva~
+  SAY NAME2 ~Minerva~
+  WRITE_ASCII SCRIPT_OVERRIDE ~C0MMINS~ // override
+  WRITE_ASCII DEATHVAR ~C0MMIN~ // death variable
+  WRITE_ASCII DIALOG ~C0MMIN~ // dialogue
+  WRITE_ASCII 0X34 ~C0MMINM~ #8   //small portrait
+  WRITE_ASCII 0x3c ~C0MMINL~ #8   //medium portrait
+  SAY BIO ~When asked about her past, MINERVA giggles as if you've said something incredibly amusing, before asking why you'd ask about the past when the present holds such excitement. After some nudging, however, she confesses that she was born of the Glimmershine clan, who hail from the distant island nation known as Lantan. Known for their numerable advancements in the field of science and technology, Lantanese artificers rarely stray from their island and their colonies throughout Faerun, making Minerva's presence in the North an unusual circumstance. When pressed on this, Minerva simply states that the thrill of wanderlust and adventure drove her to leave the comforts of her home, and her greatest desire is to travel the entirety of Faerun... and perhaps beyond. For what purpose besides her own amusement, however, you cannot say.~
+  SAY MORALE ~~
+  SAY LEADER ~Okay, everybody fall in, I'll show you the way!~ [C0MMIb]
+  SAY TIRED ~*yawn* Are we ever going to take a break?~ [C0MMIc]
+  SAY BORED ~Boy, this is sure a gooood use of my time.~ [C0MMId]
+  SAY BATTLE_CRY1 ~Fight! Fight! Fight!~ [C0MMIa]
+  SAY BATTLE_CRY2 ~Enemies spotted. They can't hide from me.~ [C0MMI8]
+  SAY BATTLE_CRY3 ~Blood makes the grass grow!~ [C0MMI9]
+  SAY BATTLE_CRY4 ~Take that! And that! And that one, too!~ [C0MMIz]
+  SAY BATTLE_CRY5 ~No time for talkin', let's get to the action!~ [C0MMIs]
+  SAY DAMAGE ~Uhh!~ [C0MMIl]
+  SAY DYING ~Ah! Oh, ugh...~ [C0MMIm]
+  SAY HURT ~Hey, over here! I'm hurt bad!~ [C0MMIe]
+  SAY AREA_FOREST ~The forest's a fine place. Beauty, freshness, calm... ack! Bugs!~
+  SAY AREA_CITY ~Ha ha, cities. Each one so different from the outside, exactly the same on the inside.~
+  SAY AREA_DUNGEON ~Oh, I can't wait to see what nasties are awaiting us here...~
+  SAY AREA_DAY ~Ahh, the sun and the skies. This is a good day for adventure!~
+  SAY AREA_NIGHT ~The night's a mystery, but that has its own excitement, doesn't it?~
+  SAY SELECT_COMMON1 ~How's it going?~ [C0MMIf]
+  SAY SELECT_COMMON2 ~Yep.~ [C0MMIg]
+  SAY SELECT_COMMON3 ~Give a girl some space, would ya?~ [C0MMIt]
+  SAY SELECT_COMMON4 ~How's it going?~ [C0MMIf]
+  SAY SELECT_COMMON5 ~Yep.~ [C0MMIg]
+  SAY SELECT_COMMON6 ~Give a girl some space, would ya?~ [C0MMIt]
+  SAY SELECT_ACTION1 ~Okay.~ [C0MMIi]
+  SAY SELECT_ACTION2 ~You bet.~ [C0MMIj]
+  SAY SELECT_ACTION3 ~Finished.~ [C0MMI7]
+  SAY SELECT_ACTION4 ~I've got a little secret for you.~ [C0MMIh]
+  SAY SELECT_ACTION5 ~*giggle*~ [C0MMIu]
+  SAY SELECT_ACTION6 ~No way.~ [C0MMIx]
+  SAY SELECT_ACTION7 ~I think what we need here is a closer look.~ [C0MMI#]
+  SAY CRITICAL_HIT ~Messing with me is a mistake you don't want to make.~ [C0MMIy]
+  SAY CRITICAL_MISS ~Balls of a juggling ogre!~ [C0MMI1]
+  SAY TARGET_IMMUNE ~Not even a scratch! This weapon's no good.~ [C0MMI2]
+  SAY INVENTORY_FULL ~Oof. This gear's a bit much for me.~ [C0MMI3]
+  SAY SPELL_DISRUPTED ~What the...that spell didn't even work!~ [C0MMI6]
+  SAY SET_A_TRAP ~That's using your gray matter!~ [C0MMIk]
+  SAY HIDDEN_IN_SHADOWS ~I disappear into the shadows.~ [C0MMI5]
+  SAY PICKED_POCKET ~Whoa, check this out!~ [C0MMI4]
+  WRITE_SHORT 0x246 (IDS_OF_SYMBOL (~kit~ ~C0ARFT~))
+
+APPEND ~pdialog.2da~ ~C0MMIN     C0MMINP           C0MMINJ          C0MMIND       C0MMINP           C0MMINJ              C0MMIND              C0MMIN~
+UNLESS ~C0MMIN~
+
+APPEND ~interdia.2da~ ~C0MMIN BC0MMIN BC0MMIN~
+  UNLESS ~C0MMIN~
+
+APPEND ~STATE.IDS~ // adds custom IsValidForPartyDialogue state
+  ~0x80101FEF CD_STATE_NOTVALID~
+  UNLESS ~CD_STATE_NOTVALID~
+  
+EXTEND_TOP ~AR1000.bcs~ ~%MOD_FOLDER%/Scripts/AR1000.baf~
+
+LAF ALTER_SCRIPT_BLOCK
+      STR_VAR script=kuarundd
+			  swap_out=~!Allegiance(Myself,ENEMY)~
+			  swap_in=~!InMyArea("C0MMin")InParty("C0MMin")!Allegiance(Myself,ENEMY)~
+END
+
+COMPILE EVAL ~%MOD_FOLDER%/Scripts/C0MMinS.baf~
+		~%MOD_FOLDER%/Scripts/C0MMinD.baf~
+		~%MOD_FOLDER%/Scripts/C0MMinR.baf~
+		~%MOD_FOLDER%/Scripts/C0MODR.baf~
+		~%MOD_FOLDER%/Scripts/C0MSumm.baf~
+
+COMPILE EVAL ~%MOD_FOLDER%/Dialogue/C0MMin.d~
+		~%MOD_FOLDER%/Dialogue/C0MMinJ.d~
+		~%MOD_FOLDER%/Dialogue/C0MODR.d~
+		~%MOD_FOLDER%/Dialogue/BC0MMin.d~
+  
+COPY_EXISTING ~DAGG11.itm~ ~override~
+SAY NAME1 #6343
+SAY NAME2 ~Boomerang Dagger +2~
+SAY UNIDENTIFIED_DESC #6720
+SAY DESC ~Fullen Woolspinner, an ambitious halfling from a well-to-do family, left his home to spend several years adventuring. During his travels, he ended up staying with a family of dwarven weaponsmiths. Much impressed by their throwing axes, which always returned to the hands of their wielder, Fullen sought to make a dagger that could do the same. With the help of his dwarven friends, he succeeded, creating several of the famous Fullen Boomerang daggers.
+
+STATISTICS:
+
+Combat abilities:
+– Returns to the wielder's hand when thrown
+
+THAC0: +2
+Damage: 2d4+2
+Damage type (melee): Piercing
+Damage type (thrown): Missile
+Speed Factor: 1
+Proficiency Type: Dagger
+Type: One-handed
+Requires:
+ 3 Strength
+
+Weight: 1~
+
+OUTER_SET DAGG11A = RESOLVE_STR_REF (~Melee Attack~)
+OUTER_SET DAGG11B = RESOLVE_STR_REF (~Ranged Attack~)
+APPEND TOOLTIP.2DA ~DAGG11 %DAGG11B% %DAGG11A% -1~ UNLESS ~DAGG11~
+  
+COPY_EXISTING ~DAGG12.itm~ ~override~
+SAY NAME1 #6343
+SAY NAME2 ~Firetooth +3~
+SAY UNIDENTIFIED_DESC #6720
+SAY DESC ~Dagger of Throwing +3: Firetooth
+This throwing knife is imbued with magical fire, and was supposedly carved from an extracted red dragon tooth. Tavern tales suggest that the beast is still alive, her anger fueling the enchantment within the weapon. Though fanciful, the story is consistent, and it is said the dagger returns to the thrower "as though on wings."
+
+STATISTICS:
+
+Combat abilities:
+– Returns to the wielder's hand when thrown
+
+THAC0: +3
+Damage: 2d4+3, +1d2 fire damage
+Damage type: Missile
+Speed Factor: 1
+Proficiency Type: Dagger
+Type: One-handed
+Requires:
+ 3 Strength
+
+Weight: 1~
+
+OUTER_SET DAGG12A = RESOLVE_STR_REF (~Melee Attack~)
+OUTER_SET DAGG12B = RESOLVE_STR_REF (~Ranged Attack~)
+APPEND TOOLTIP.2DA ~DAGG12 %DAGG12B% %DAGG12A% -1~ UNLESS ~DAGG12~
+
+ACTION_IF FILE_EXISTS_IN_GAME ~KUSMITH.sto~ THEN BEGIN
+COPY_EXISTING ~KUSMITH.sto~ ~override~
+ADD_STORE_ITEM ~DAGG11~ BEFORE ~RELIAN~ #0 #0 #0 ~IDENTIFIED~ #1
+END
+  
+ACTION_IF FILE_EXISTS_IN_GAME ~LDD_NYM.sto~ THEN BEGIN
+COPY_EXISTING ~LDD_NYM.sto~ ~override~
+ADD_STORE_ITEM ~DAGG12~ AFTER ~MYSTERY~ #0 #0 #0 ~IDENTIFIED~ #1
+END
+  
+COPY_EXISTING ~C0MBrac1.itm~ ~override~
+SAY NAME1 ~Bracers~
+SAY NAME2 ~Minerva's Bracers of Knife-Throwing Excellence~
+SAY DESC ~Minerva's leather bracers appear simple at first glance, but closer inspection (as far as she'll allow) reveals knives, tools and small phials concealed in secret compartments, between straps, and seemingly every available space possible. How nothing ever seems to fall out or become a safety hazard is a mystery only explained by Lantanese innovation.
+
+STATISTICS:
+
+Charge abilities:
+– May create 5 'Blast Knives' once per day
+
+Equipped abilities:
+– Ranged THAC0: +2
+– From 9th level onwards, Proficiency (Dagger): +1
+– From 13th level onwards, +2 THAC0 (Ranged) and +5% Critical Hit Rate (Ranged)
+
+Weight: 2~
+OUTER_SET strref = RESOLVE_STR_REF (~Minerva snaps her wrist backwards as you touch her bracer. "Nope, not unless you want to lose fingers."~ [GAM_47])
+APPEND item_use.2da ~C0MBrac1 Minerva %strref% 3~
+
+COPY_EXISTING ~C0MBrac1.sto~ ~override~
+SAY 0xc ~Bracers of Knife-Throwing Excellence~
+
+COPY_EXISTING ~C0MDaggS.spl~ ~override~
+READ_LONG 0x64 "abil_off"
+READ_SHORT 0x68 "abil_num"
+SET "delta" = 0
+FOR (index = 0; index < abil_num; index = index + 1) BEGIN
+WRITE_SHORT (%abil_off% + (0x28 * %index%) + 0x26) ~%c0mboom%~
+END
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139   // Display portrait icon
+        parameter1 = RESOLVE_STR_REF (~Stunned~)
+      END
+COPY_EXISTING ~C0MDagg1.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0ARFT~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139   // Display portrait icon
+        parameter1 = RESOLVE_STR_REF (~Stunned~)
+      END
+SAY NAME1 ~Throwing Dagger~
+SAY NAME2 ~Blast Knives~
+SAY DESC ~Blast Knives are slightly larger-than-normal daggers with a hollowed blade and detachable grip, allowing for a small quantity of explosive oil to be contained within. When the small fuse connected to the hilt is lit, the knife must be thrown quickly and precisely, as it will detonate with a fiery impact once the oil is ignited. A dangerous and powerful weapon, and one that only a skilled artificer may handle safely.
+
+STATISTICS:
+
+Combat abilities:
+– 3 attacks per round
+– Deals 1d6 fire damage and Stuns on a failed Saving Throw vs. Breath. If the target dies, an explosion occurs inflicting the same effects to all creatures in a 5-ft. radius.
+
+Damage: 1d4 (missile)
+Speed Factor: 2
+Proficiency Type: Dagger
+Type: One-handed
+Requires:
+ 3 Strength
+
+Weight: 0~
+
+COPY_EXISTING ~C0MDagg2.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0ARFT~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139   // Display portrait icon
+        parameter1 = RESOLVE_STR_REF (~Stunned~)
+      END
+SAY NAME1 ~Throwing Dagger~
+SAY NAME2 ~Blast Knives +2~
+SAY DESC ~Blast Knives are slightly larger-than-normal daggers with a hollowed blade and detachable grip, allowing for a small quantity of explosive oil to be contained within. When the small fuse connected to the hilt is lit, the knife must be thrown quickly and precisely, as it will detonate with a fiery impact once the oil is ignited. A dangerous and powerful weapon, and one that only a skilled artificer may handle safely.
+
+STATISTICS:
+
+Combat abilities:
+– 3 attacks per round
+– Deals 3d6 fire damage and Stuns on a failed Saving Throw vs. Breath at -2. If the target dies, an explosion occurs inflicting the same effects to all creatures in a 5-ft. radius.
+
+THAC0: +2
+Damage: 1d4+2 (missile)
+Speed Factor: 1
+Proficiency Type: Dagger
+Type: One-handed
+Requires:
+ 3 Strength
+
+Weight: 0~
+
+COPY_EXISTING ~C0MDagg3.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0ARFT~))
+	  parameter2 = 9
+	  power = 1
+	  special = RESOLVE_STR_REF (~Artificer~)
+END
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139   // Display portrait icon
+        parameter1 = RESOLVE_STR_REF (~Stunned~)
+      END
+SAY NAME1 ~Throwing Dagger~
+SAY NAME2 ~Blast Knives +4~
+SAY DESC ~Blast Knives are slightly larger-than-normal daggers with a hollowed blade and detachable grip, allowing for a small quantity of explosive oil to be contained within. When the small fuse connected to the hilt is lit, the knife must be thrown quickly and precisely, as it will detonate with a fiery impact once the oil is ignited. A dangerous and powerful weapon, and one that only a skilled artificer may handle safely.
+
+STATISTICS:
+
+Combat abilities:
+– 3 attacks per round
+– Deals 5d6 fire damage and Stuns on a failed Saving Throw vs. Breath at -2. If the target dies, an explosion occurs inflicting the same effects to all creatures in a 5-ft. radius.
+
+THAC0: +4
+Damage: 1d4+4 (missile)
+Speed Factor: 0
+Proficiency Type: Dagger
+Type: One-handed
+Requires:
+ 3 Strength
+
+Weight: 0~
+
+COPY_EXISTING ~BELTGON.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 177
+	  target = 1
+	  timing = 2
+	  parameter1 = IDS_OF_SYMBOL (~KIT~ ~C0ARFT~)
+	  parameter2 = 9
+	STR_VAR
+	  resource = C0MBELT1
+END
+SAY DESC ~Gond, god of invention and artifice, is a deity rarely worshipped by traditional adventurers. Some thieves, however, revere Gond for his role in the development of locks, traps, and other complex machines. One such thief was the burglar Jurmar the Calm, who began his career as a locksmith. Known for his cool demeanor and steady hand, Jurmar paid priests of Gond to fashion this tool belt for him. Whenever Jurmar was stuck in a situation where he didn't have the right tool for a job, one of the small pouches on the belt would supply him with what he needed.
+
+STATISTICS:
+
+Equipped abilities:
+– Open Locks: +10%
+– Find Traps: +5%
+– Set Traps: +10% (Artificers only)
+
+Weight: 2~
+
+COPY_EXISTING ~C0MFISH.itm~ ~override~
+SAY NAME1 ~Minerva's Lucky Knucky Pendant~
+SAY NAME2 ~Minerva's Lucky Knucky Pendant~
+SAY DESC ~Minerva's 'Lucky Knucky' was carved from the remains of a large knucklehead trout. Though certainly not the first option to come to mind as a worn accessory, scrimshaw has an earthen, natural beauty of its own. Minerva insists that it will bring its holder good luck.
+
+STATISTICS:
+
+Equipped abilities:
+– Luck: +1
+– Saving Throws: +1
+
+Weight: 1~
+
+COPY_EXISTING ~CDGOND.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 177
+	  target = 1
+	  timing = 2
+	  parameter1 = IDS_OF_SYMBOL (~KIT~ ~C0ARFT~)
+	  parameter2 = 9
+	STR_VAR
+	  resource = C0MBELT2
+END
+SAY DESC ~Gond, god of invention and artifice, is a deity rarely worshipped by traditional adventurers. Some thieves, however, revere Gond for his role in the development of locks, traps, and other complex machines. One such thief was the burglar Jurmar the Calm, who began his career as a locksmith. Known for his cool demeanor and steady hand, Jurmar paid priests of Gond to fashion this tool belt for him. Whenever Jurmar was stuck in a situation where he didn't have the right tool for a job, one of the small pouches on the belt would supply him with what he needed.
+
+Oswald has managed to add even more tools for the belt, further enhancing its usefulness.
+
+STATISTICS:
+
+Equipped abilities:
+– Open Locks: +15%
+– Find Traps: +10%
+– Set Traps: +20% (Artificers only)
+
+Weight: 2~
+
+COPY_EXISTING ~C0MSICK1.SPL~ ~override~
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139   // Display portrait icon
+        parameter1 = RESOLVE_STR_REF (~Nauseated~)
+      END
+
+COPY_EXISTING ~C0MSICK2.SPL~ ~override~
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139   // Display portrait icon
+        parameter1 = RESOLVE_STR_REF (~Empowered~)
+      END
+
+COPY_EXISTING ~C0MSP01.SPL~ ~override~
+      LPF ALTER_EFFECT
+      INT_VAR
+        match_opcode      = 139   // Display portrait icon
+        parameter1 = RESOLVE_STR_REF (~Stunned~)
+      END
+	  
+SAY NAME1 ~Gear Crash~
+SAY UNIDENTIFIED_DESC ~Gear Crash
+(Evocation)
+
+Level: 1
+Range: Visual range of the caster
+Duration: Instant
+Casting Time: 1
+Area of Effect: 1 creature
+Saving Throw: Neg.
+
+A gear-shaped mass of energy originating from the plane of Mechanus is formed above the targeted creature, smashing into them and dealing 6d6 damage (half magical, half physical). If the target fails a Saving Throw vs. Spells, they are additionally Stunned for 1 round.~
+
+COPY_EXISTING ~C0MMOD1.cre~ ~override~
+  WRITE_ASCII 0X34 ~C0MODR~ #8   //small portrait
+SAY NAME1 ~Quartus-G1~
+SAY NAME2 ~Quartus-G1~
+WRITE_ASCII 0x2cc ~C0MODR~  #8  // dialogue
+  WRITE_ASCII 0x280 ~C0MODR~ #32  //DV
+    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_MODRON~))
+
+COPY_EXISTING ~C0MMOD2.cre~ ~override~
+  WRITE_ASCII 0X34 ~C0MODR~ #8   //small portrait
+SAY NAME1 ~Quartus-G2~
+SAY NAME2 ~Quartus-G2~
+WRITE_ASCII 0x2cc ~C0MODR~  #8  // dialogue
+  WRITE_ASCII 0x280 ~C0MODR~ #32  //DV
+    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_MODRON~))
+
+COPY_EXISTING ~C0MMOD3.cre~ ~override~
+  WRITE_ASCII 0X34 ~C0MODR~ #8   //small portrait
+SAY NAME1 ~Quartus-G3~
+SAY NAME2 ~Quartus-G3~
+WRITE_ASCII 0x2cc ~C0MODR~  #8  // dialogue
+  WRITE_ASCII 0x280 ~C0MODR~ #32  //DV
+    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_MODRON~))
+	
+COPY_EXISTING ~c0mnktn.spl~ ~override~
+LPF ALTER_EFFECT INT_VAR match_opcode = 290 parameter1 = RESOLVE_STR_REF (~Artificer~) END

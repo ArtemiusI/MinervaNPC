@@ -1,0 +1,194 @@
+// UPGRADES
+
+IF
+  Global("Creation","LOCALS",0)
+THEN
+  RESPONSE #100
+  SetGlobal("Creation","LOCALS",1)
+  MakeGlobalOverride()
+  AddFamiliar()
+  ChangeEnemyAlly(Myself,FAMILIAR)
+END
+
+IF
+  !Global("Standby","LOCALS",1)
+  HasItemEquiped("B1-10M2",Myself)
+  ClassLevelGT("C0MMin",ROGUE,13)
+  !ClassLevelGT("C0MMin",ROGUE,19)
+THEN
+  RESPONSE #100
+  CreateVisualEffectObject("spcrtwpn",Myself)
+  Kill(Myself)
+  DestroySelf()
+  ActionOverride("C0MMin",ReallyForceSpellRES("C0AUIN3A","C0MODR"))
+END
+
+IF
+  !Global("Standby","LOCALS",1)
+  OR(2)
+  HasItemEquiped("B1-10M2",Myself)
+  HasItemEquiped("B1-12M3",Myself)
+  ClassLevelGT("C0MMin",ROGUE,19)
+THEN
+  RESPONSE #100
+  CreateVisualEffectObject("spcrtwpn",Myself)
+  Kill(Myself)
+  DestroySelf()
+  ActionOverride("C0MMin",ReallyForceSpellRES("C0AUIN3A","C0MODR"))
+END
+
+IF
+  Die()
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+    SetGlobal("C0AutoCreated", "GLOBAL", 0)
+    ApplySpellRES("c0autos3",Myself)
+	DestroyAllEquipment()
+	SetInterrupt(TRUE)
+END
+
+IF
+	HappinessLT("C0MMin",-299)
+	!InParty("C0MMin")
+THEN
+  RESPONSE #100
+	ChangeEnemyAlly(Myself,NEUTRAL)
+	EscapeArea()
+END
+
+IF
+  !InParty("C0MMin")
+  !Allegiance("C0MMin",ENEMY)
+  !Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+  SetGlobal("Standby","LOCALS",0)
+  RemoveFamiliar()
+  ChangeEnemyAlly(Myself,NEUTRAL)
+END
+
+IF
+  InParty("C0MMin")
+  Global("Standby","LOCALS",1)
+  !Allegiance(Myself,GOODBUTBLUE)
+THEN
+  RESPONSE #100
+  RemoveFamiliar()
+  ChangeEnemyAlly(Myself,GOODBUTBLUE)
+END
+
+IF
+  InParty("C0MMin")
+  !Allegiance(Myself,FAMILIAR)
+  !Global("Standby","LOCALS",1)
+THEN
+  RESPONSE #100
+  AddFamiliar()
+  MakeGlobalOverride()
+  ChangeEnemyAlly(Myself,FAMILIAR)
+END
+
+IF
+  !InParty("C0MMin")
+  Allegiance("C0MMin",ENEMY)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+  SetGlobal("Standby","LOCALS",0)
+  Enemy()
+  RemoveFamiliar()
+END
+
+IF
+    StateCheck("C0MMin",STATE_REALLY_DEAD)
+THEN
+  RESPONSE #100
+    Kill(Myself)
+END
+
+IF
+    StateCheck("C0MMin",STATE_IMMOBILE)
+	Global("Disabled","LOCALS",0)
+THEN
+RESPONSE #100
+	SetGlobal("Disabled","LOCALS",1)
+	DisplayStringHead(Myself,~Disabled~)
+	ApplySpellRES("c0auto1",Myself)
+END
+
+IF
+    !StateCheck("C0MMin",STATE_IMMOBILE)
+	Global("Disabled","LOCALS",1)
+THEN
+RESPONSE #100
+	SetGlobal("Disabled","LOCALS",0)
+	DisplayStringHead(Myself,~Re-enabled~)
+	ApplySpellRES("c0auto3",Myself)
+END
+
+IF
+	OR(4)
+    StateCheck("C0MMin",STATE_PANIC)
+    StateCheck("C0MMin",STATE_BERSERK)
+    StateCheck("C0MMin",STATE_CONFUSED)
+    StateCheck("C0MMin",STATE_CHARMED)
+	Global("Berserk","LOCALS",0)
+THEN
+RESPONSE #100
+	SetGlobal("Berserk","LOCALS",1)
+	DisplayStringHead(Myself,~Lost control~)
+	ReallyForceSpellRES("c0auto2",Myself)
+END
+
+IF
+    !StateCheck("C0MMin",STATE_PANIC)
+    !StateCheck("C0MMin",STATE_BERSERK)
+    !StateCheck("C0MMin",STATE_CONFUSED)
+    !StateCheck("C0MMin",STATE_CHARMED)
+	Global("Berserk","LOCALS",1)
+THEN
+RESPONSE #100
+	SetGlobal("Berserk","LOCALS",0)
+	DisplayStringHead(Myself,~Regained control~)
+	ReallyForceSpellRES("c0auto3",Myself)
+END
+
+IF
+  !Global("SelfDefense","LOCALS",1)
+  !Global("Disabled","LOCALS",1)
+  !Global("Recharge","LOCALS",1)
+  See(Nearestenemyof(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(Nearestenemyof(Myself),15)
+END
+
+IF
+  !Global("SelfDefense","LOCALS",1)
+  !Global("Disabled","LOCALS",1)
+  !Global("Recharge","LOCALS",1)
+  AttackedBy([ENEMY],DEFAULT)
+THEN
+  RESPONSE #100
+    AttackReevaluate(Lastattackerof(Myself),15)
+END
+
+IF
+  !Global("Recharge","LOCALS",1)
+  !Global("Standby","LOCALS",1)
+  !Global("Disabled","LOCALS",1)
+	!Global("Berserk","LOCALS",1)
+	ActionListEmpty()
+	!See(Nearestenemyof(Myself))
+    !StateCheck("C0MMin",STATE_IMMOBILE)
+    !StateCheck("C0MMin",STATE_PANIC)
+    !StateCheck("C0MMin",STATE_BERSERK)
+    !StateCheck("C0MMin",STATE_CONFUSED)
+	CombatCounter(0)
+	Delay(6)
+	!Range("C0MMin",20)
+THEN
+	RESPONSE #100
+		MoveToObjectFollow("C0MMin")
+END

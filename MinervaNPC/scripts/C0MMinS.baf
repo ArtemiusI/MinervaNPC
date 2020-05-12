@@ -1,0 +1,1214 @@
+// EXPERIENCE
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  XPGT(Player1,31999)
+  XPLT(Myself,32000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    ChangeStat(Myself,XP,32000,SET)
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  XPGT(Player1,15999)
+  XPLT(Myself,16000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    ChangeStat(Myself,XP,16000,SET)
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  XPGT(Player1,7999)
+  XPLT(Myself,8000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    ChangeStat(Myself,XP,8000,SET)
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  XPGT(Player1,3999)
+  XPLT(Myself,4000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    ChangeStat(Myself,XP,4000,SET)
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  XPGT(Player1,1999)
+  XPLT(Myself,2000)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+    ChangeStat(Myself,XP,2000,SET)
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
+    SetInterrupt(TRUE)
+END
+
+IF
+  Global("BD_JOINXP","LOCALS",0)
+  InParty(Myself)
+  XPLT(Player1,500)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("BD_JOINXP","LOCALS",1)
+	SetGlobal("C0AlchemyRefreshStock","GLOBAL",1)
+    SetInterrupt(TRUE)
+END
+
+// Introduction
+
+IF
+  !InParty(Myself)
+  GlobalLT("C0MMinStart","ar1000",5)
+  See([PC])
+  OR(2)
+  Range([PC],22)
+  Global("C0MMinStart","ar1000",4)
+THEN
+  RESPONSE #100
+  SetInterrupt(FALSE)
+  SetGlobal("C0MMinStart","ar1000",5)
+  FaceObject([PC])
+  Wait(2)
+  SetSequence(2)
+  DisplayStringHead(Myself,~"Oh, oh! Over here, north-trotters!"~)
+  SetInterrupt(TRUE)
+END
+
+IF
+	See([PC])
+	Range([PC],18)
+	Global("C0MMinStart","ar1000",5)
+THEN
+  RESPONSE #100
+	SetGlobal("C0MMinStart","ar1000",6)
+	SetGlobal("C0MMinBegin","GLOBAL",1)
+    StartDialogueNoSet([PC])
+END
+
+// Temple of Tempus
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	AreaCheck("AR1001")
+	Global("C0MMinTempusTemple","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinTempusTemple","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",2)
+	SetInterrupt(TRUE)
+END
+
+// Apsel's Door
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	AreaCheck("AR1000")
+	OpenState("AR1000 Door10",TRUE)
+	Global("C0MMinApselDoor","AR1000",1)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinApselDoor","AR1000",2)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",1)
+	SetInterrupt(TRUE)
+END
+
+// Created Blast Knives at some point
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	CombatCounter(0)
+	!See([ENEMY])
+	OR(3)
+	HasItem("C0MDagg1",Myself)
+	HasItem("C0MDagg2",Myself)
+	HasItem("C0MDagg3",Myself)
+	Global("C0MMinHadBlastKnives","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinHadBlastKnives","GLOBAL",1)
+	SetInterrupt(TRUE)
+END
+
+// Cellar - Jermsy
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	CombatCounter(0)
+	!See([ENEMY])
+	AreaCheck("AR2005")
+	Global("C0MMinJermsyCellar","AR2005",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinJermsyCellar","AR2005",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",2)
+	SetInterrupt(TRUE)
+END
+
+// Girdle of Gond
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	CombatCounter(0)
+	!See([ENEMY])
+	PartyHasItem("beltgon")
+	Global("C0MMinGirdleGond","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinGirdleGond","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",2)
+	SetInterrupt(TRUE)
+END
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	CombatCounter(0)
+	!See([ENEMY])
+	PartyHasItem("CDTOOLS")
+	Global("C0MMinGnomishTools","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinGnomishTools","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",2)
+	SetInterrupt(TRUE)
+END
+
+// Orrick's Tower
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	AreaCheck("AR2102")
+	Global("C0MMinBeenToOrrickTower","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinBeenToOrrickTower","GLOBAL",1)
+	SetInterrupt(TRUE)
+END
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	CombatCounter(0)
+	!See([ENEMY])
+	AreaCheck("AR2100")
+	Global("C0MMinBeenToOrrickTower","GLOBAL",1)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinBeenToOrrickTower","GLOBAL",2)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",4)
+	SetInterrupt(TRUE)
+END
+
+// Orrick's Tower
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	AreaCheck("AR2116")
+	See("ARUNDEL")
+	Global("C0MMinArundelDying","GLOBAL",0)
+	GlobalGT("SPRITE_IS_DEADYxunomei","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+    StartCutSceneMode()
+    ClearAllActions()
+    MultiPlayerSync()
+	SetGlobal("C0MMinArundelDying","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+	SetInterrupt(TRUE)
+END
+
+// Optional Talk: Lucky Knucky
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	CombatCounter(0)
+	!See([ENEMY])
+	PartyHasItem("FISH")
+	GlobalGT("Damien_Quest","GLOBAL",0)
+	Global("C0MMinTalkFishboneCraft","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinTalkFishboneCraft","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",2)
+	SetInterrupt(TRUE)
+END
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	Global("C0MMinTalkFishboneCraft","GLOBAL",1)
+THEN
+RESPONSE #100
+	StartDialogueNoSet(Player1)
+END
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	Global("C0MMinTalkFishboneCraft","GLOBAL",2)
+	GlobalTimerExpired("C0MMinTalkFishboneCraftTimer","GLOBAL")
+THEN
+RESPONSE #100
+	StartDialogueNoSet(Player1)
+END
+
+// Optional Talk: After slaying goblins
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	CombatCounter(0)
+	!See([ENEMY])
+	PartyHasItem("FISH")
+	GlobalGT("SPRITE_IS_DEADGOBLINBOWELITE(","GLOBAL",0)
+	GlobalGT("SPRITE_IS_DEADGOBLINARCHER1","GLOBAL",0)
+	GlobalGT("SPRITE_IS_DEADGOBLINARCHER2","GLOBAL",0)
+	GlobalGT("SPRITE_IS_DEADGOBLINAXE1","GLOBAL",0)
+	GlobalGT("SPRITE_IS_DEADGOBLINAXE2","GLOBAL",0)
+	GlobalGT("SPRITE_IS_DEADGOBLINAXE3","GLOBAL",0)
+	GlobalGT("SPRITE_IS_DEADGOBLINAXE4","GLOBAL",0)
+	GlobalGT("SPRITE_IS_DEADGOBLINAXE5","GLOBAL",0)
+	AreaCheck("AR1000")
+	Global("C0MMinTalkFishbone","AR1000",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinTalkFishbone","AR1000",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",4)
+	SetInterrupt(TRUE)
+END
+
+// Optional Talk: After clearing Cave
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	CombatCounter(0)
+	!See([ENEMY])
+	PartyHasItem("CONTRACT")
+	AreaCheck("AR1201")
+	Global("C0MMinTalkContract","AR1201",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinTalkContract","AR1201",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",2)
+	SetInterrupt(TRUE)
+END
+
+// Optional Talk: Finding Erevain's Sword
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	CombatCounter(0)
+	!See([ENEMY])
+	PartyHasItem("EREVAIN")
+	AreaCheck("AR4001")
+	Global("C0MMinErevainSword","AR4001",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinErevainSword","AR4001",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",2)
+	SetInterrupt(TRUE)
+END
+
+// Optional Talk: Fake Eldathyns
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("CDTalkedAlbion","GLOBAL",1)
+	Global("C0MMinFalseEldath","AR4004",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinFalseEldath","AR4004",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",2)
+	SetInterrupt(TRUE)
+END
+
+// Optional Talk: Craft Automaton (Quartus)
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	See("C0MODR")
+	Global("C0MMinQuartus","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinQuartus","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",1)
+	SetInterrupt(TRUE)
+END
+
+// Optional Talk: Dorn's Deep
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	CombatCounter(0)
+	!See([ENEMY])
+	AreaCheck("AR6002")
+	Global("C0MMinDornsDeep","AR6002",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinDornsDeep","AR6002",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",15)
+	SetInterrupt(TRUE)
+END
+
+// Optional Talk: Ice Museum
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	CombatCounter(0)
+	!See([ENEMY])
+	AreaCheck("AR7001")
+	Global("C0MMinIceSalamander","AR7001",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinIceSalamander","AR7001",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",6)
+	SetInterrupt(TRUE)
+END
+
+// Optional Talk: Dwarf Table
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	CombatCounter(0)
+	!See([ENEMY])
+	AreaCheck("AR6010")
+	Global("C0MMinDwarfPuzzle","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinDwarfPuzzle","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",2)
+	SetInterrupt(TRUE)
+END
+
+// Optional Talk: Golem Book
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	CombatCounter(0)
+	!See([ENEMY])
+	PartyHasItem("CDMGOLEM")
+	Global("C0MMinGolemBook","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinGolemBook","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",4)
+	SetInterrupt(TRUE)
+END
+
+// Optional Talk: Squirrels
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	CombatCounter(0)
+	!See([ENEMY])
+	PartyHasItem("SQUIREL")
+	Global("C0MMinSquirrels","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0MMinSquirrels","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",4)
+	SetInterrupt(TRUE)
+END
+
+// Friendship/Romance Talk - 1 - Leaving Easthaven
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR1000")
+	Global("Supply_Quest","GLOBAL",2)
+	Global("C0MMinTalk1","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinTalk1","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",4)
+END
+
+// Friendship/Romance Talk - 2 - After Avalanche
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR2000")
+	Global("Hermit_Exit","GLOBAL",1)
+	Global("C0MMinTalk2","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinTalk2","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",4)
+END
+
+// Friendship/Romance Talk - 3 - Entering Kuldahar
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR2100")
+	Global("C0MMinTalk3","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinTalk3","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",5)
+END
+
+// Friendship/Romance Talk - 4 - Entering a Tomb
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	OR(5)
+	AreaCheck("AR3101")
+	AreaCheck("AR3201")
+	AreaCheck("AR3301")
+	AreaCheck("AR3401")
+	AreaCheck("AR3501")
+	Global("C0MMinTalk4","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinTalk4","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",1)
+END
+
+// Friendship/Romance Talk - 5 - Inner Sanctum
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR3603")
+	Global("C0MMinTalk5","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinTalk5","GLOBAL",1)
+END
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	!AreaCheck("AR3603")
+	Global("C0MMinTalk5","GLOBAL",1)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinTalk5","GLOBAL",2)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",2)
+END
+
+// Friendship/Romance Talk - 6 - Dragon's Eye Exterior
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR4000")
+	Global("C0MMinTalk6","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinTalk6","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",2)
+END
+
+// Friendship/Romance Talk - 7 - Dragon's Eye - Level 3
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR4003")
+	Global("C0MMinTalk7","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinTalk7","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",20)
+END
+
+// Friendship/Romance Talk - 8 - After killing Yxunomei
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	Dead("YXUNOMEI")
+	PartyHasItem("HEARTGM")
+	Global("C0MMinTalk8","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinTalk8","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",4)
+END
+
+// Friendship/Romance Talk - 9 - Leaving Dragon's Eye
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR4000")
+	PartyHasItem("HEARTGM")
+	Global("C0MMinTalk9","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinTalk9","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",2)
+END
+
+// Friendship/Romance Talk - 10 - Leaving Dragon's Eye
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR5004")
+	Global("C0MMinTalk10","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinTalk10","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",10)
+END
+
+// Friendship/Romance Talk - 11 - Leaving Dragon's Eye
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	!AreaCheck("AR5103")
+	Global("OpenDornsDeep","GLOBAL",1)
+	Global("C0MMinTalk11","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinTalk11","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",20)
+END
+
+// Friendship/Romance Talk - 12 - Svirf Village
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR8004")
+	Global("C0MMinTalk12","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinTalk12","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",5)
+END
+
+// Friendship/Romance Talk - 13 - Back to Easthaven
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR1100")
+	Global("C0MMinTalk13","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinTalk13","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",5)
+END
+
+// Friendship/Romance Talk - 14 - Final Talk
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR1104")
+	Global("C0MMinTalk14","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinTalk14","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",2)
+END
+
+// Romance Talk - 2
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR7005")
+	Global("C0MMinRomanceActive","GLOBAL",1)
+	GlobalGT("C0MMinRomanceTalk1","GLOBAL",0)
+	Global("C0MMinRomanceTalk2","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinRomanceTalk2","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",2)
+END
+
+// Romance Talk - 3
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR8012")
+	Global("C0MMinRomanceActive","GLOBAL",1)
+	GlobalGT("ALL_KEYS","GLOBAL",5)
+	GlobalGT("C0MMinRomanceTalk1","GLOBAL",0)
+	GlobalGT("C0MMinRomanceTalk2","GLOBAL",0)
+	Global("C0MMinRomanceTalk3","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinRomanceTalk3","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",2)
+END
+
+// HoW - Talk 1 - Lonelywood
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR9100")
+	Global("C0MMinHoWTalk1","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinHoWTalk1","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",30)
+END
+
+// HoW - Talk 2 - Burial Isle
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR9400")
+	Global("C0MMinHoWTalk2","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinHoWTalk2","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",30)
+END
+
+// HoW - Talk 3 - Gloomfrost
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR9500")
+	Global("C0MMinHoWTalk3","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinHoWTalk3","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",30)
+END
+
+// HoW - Talk 4 - Post-Seer Death
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR9200")
+	Global("Seer_Death_OK","GLOBAL",1)
+	Global("C0MMinHoWTalk4","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinHoWTalk4","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",30)
+END
+
+// HoW - Talk 5 - Final Talk
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR9603")
+	OpenState("AR9603_Door",TRUE)
+	Global("C0MMinHoWTalk5","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinHoWTalk5","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+
+// HoW - Gloomfrost Weapon
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	OR(7)
+	PartyHasItem("BloodGF")
+	PartyHasItem("TALONGF")
+	PartyHasItem("HANDGF")
+	PartyHasItem("KISSGF")
+	PartyHasItem("FISTGF")
+	PartyHasItem("FANGGF")
+	PartyHasItem("TONGGF")
+	Global("C0MMinGloomfrostWeapon","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinGloomfrostWeapon","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",4)
+END
+
+// TotL - Talk 1 - Started Trials
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR9700")
+	Global("C0MMinToTLTalk1","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinToTLTalk1","GLOBAL",1)
+END
+
+// TotL - Talk 2 - Freed Knights
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	Global("Spirits_Freed","GLOBAL",4)
+	Global("C0MMinToTLTalk2","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinToTLTalk2","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",4)
+END
+
+// TotL - Door Comment
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	Global("MAGICMOUTH_DONE","AR9717",1)
+	Global("C0MMinToTLDoorTalk","AR9717",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinToTLDoorTalk","AR9717",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",1)
+END
+
+// TotL - Talk 3 - Trapped
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	GlobalGT("Master_Quest","GLOBAL",4)
+	Global("C0MMinToTLTalk3","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0MMinToTLTalk3","GLOBAL",1)
+	RealSetGlobalTimer("C0MMinTalkTimer","LOCALS",4)
+END
+
+// Talk Trigger
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	OR(34)
+	Global("C0MMinTalkFishbone","AR1000",1)
+	Global("C0MMinTalkContract","AR1201",1)
+	Global("C0MMinErevainSword","AR4001",1)
+	Global("C0MMinFalseEldath","AR4004",1)
+	Global("C0MMinDornsDeep","AR6002",1)
+	Global("C0MMinIceSalamander","AR7001",1)
+	Global("C0MMinGolemBook","GLOBAL",1)
+	Global("C0MMinSquirrels","GLOBAL",1)
+	Global("C0MMinToTLDoorTalk","AR9717",1)
+	Global("C0MMinApselDoor","AR1000",2)
+	Global("C0MMinGirdleGond","GLOBAL",1)
+	Global("C0MMinGnomishTools","GLOBAL",1)
+	Global("C0MMinJermsyCellar","AR2005",1)
+	Global("C0MMinBeenToOrrickTower","GLOBAL",2)
+	Global("C0MMinTempusTemple","GLOBAL",1)
+	Global("C0MMinGloomfrostWeapon","GLOBAL",1)
+	Global("C0MMinDwarfPuzzle","GLOBAL",1)
+	Global("C0MMinQuartus","GLOBAL",1)
+	Global("C0MMinTalk2","GLOBAL",1)
+	Global("C0MMinTalk3","GLOBAL",1)
+	Global("C0MMinTalk4","GLOBAL",1)
+	Global("C0MMinTalk5","GLOBAL",2)
+	Global("C0MMinTalk7","GLOBAL",1)
+	Global("C0MMinTalk8","GLOBAL",1)
+	Global("C0MMinTalk10","GLOBAL",1)
+	Global("C0MMinHoWTalk1","GLOBAL",1)
+	Global("C0MMinHoWTalk2","GLOBAL",1)
+	Global("C0MMinHoWTalk3","GLOBAL",1)
+	Global("C0MMinHoWTalk4","GLOBAL",1)
+	Global("C0MMinHoWTalk5","GLOBAL",1)
+	Global("C0MMinToTLTalk1","GLOBAL",1)
+	Global("C0MMinToTLTalk2","GLOBAL",1)
+	Global("C0MMinToTLTalk3","GLOBAL",1)
+	Global("C0MMinCooking","GLOBAL",2)
+THEN
+RESPONSE #100
+	StartDialogueNoSet(Player1)
+END
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0MMinTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0MMinTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	OR(9)
+	Global("C0MMinTalk1","GLOBAL",1)
+	Global("C0MMinTalk6","GLOBAL",1)
+	Global("C0MMinTalk9","GLOBAL",1)
+	Global("C0MMinTalk11","GLOBAL",1)
+	Global("C0MMinTalk12","GLOBAL",1)
+	Global("C0MMinTalk13","GLOBAL",1)
+	Global("C0MMinTalk14","GLOBAL",1)
+	Global("C0MMinRomanceTalk2","GLOBAL",1)
+	Global("C0MMinRomanceTalk3","GLOBAL",1)
+THEN
+RESPONSE #100
+	PlaySong(%C0MMMUS%)
+	StartDialogueNoSet(Player1)
+END
+
+// Items
+
+// Blade of the Gathering Storm
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!See([ENEMY])
+	CombatCounter(0)
+	PartyHasItem("l#ffda")
+	Global("C0MMinTalkGatheringStorm","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	Wait(1)
+	SetGlobal("C0MMinTalkGatheringStorm","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+	SetInterrupt(TRUE)
+END
+
+// Bracer Upgrades
+
+IF
+	LevelGT(Myself,8)
+	HasItemEquiped("C0MBrac1",Myself)
+	Global("BracerUpgrade","LOCALS",0)
+THEN
+  RESPONSE #100
+	IncrementGlobal("BracerUpgrade","LOCALS",1)
+	TransformItem("C0MBrac1","C0MBrac1")
+END
+
+IF
+	LevelGT(Myself,12)
+	HasItemEquiped("C0MBrac1",Myself)
+	Global("BracerUpgrade","LOCALS",1)
+THEN
+  RESPONSE #100
+	IncrementGlobal("BracerUpgrade","LOCALS",1)
+	TransformItem("C0MBrac1","C0MBrac1")
+END
