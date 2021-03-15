@@ -18,7 +18,6 @@ BEGIN ~Minerva NPC for Icewind Dale: Enhanced Edition~
   REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~This component must be installed on IWD:EE.~
 COPY ~%MOD_FOLDER%/2da~ ~override~
 COPY ~%MOD_FOLDER%/areas~ ~override~
-COPY ~%MOD_FOLDER%/audio~ ~override~
 COPY ~%MOD_FOLDER%/bams~ ~override~
 COPY ~%MOD_FOLDER%/items~ ~override~
 COPY ~%MOD_FOLDER%/portraits~ ~override~

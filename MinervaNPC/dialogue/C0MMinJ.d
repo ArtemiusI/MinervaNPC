@@ -336,7 +336,7 @@ END
 CheckStatGT(Player1,30,LORE)
 Race(Player1,DWARF)~ + ~That table had the symbols of Moradin, Clangeddin and Berronar Truesilver. Maybe we're supposed to match them with these ones?~ + MINERVA-DWARF-PUZZLE-2
 + ~!CheckStatGT(Player1,30,LORE)
-Race(Player1,DWARF)~ + ~That's probably a clue of some sort.~ + MINERVA-DWARF-PUZZLE-3
+!Race(Player1,DWARF)~ + ~That's probably a clue of some sort.~ + MINERVA-DWARF-PUZZLE-3
 
 CHAIN C0MMinJ MINERVA-DWARF-PUZZLE-2
 ~Yep, I was just about to say the same thing. Just make sure not to step on the wrong symbol. I have a feeling the lightning-y smell isn't just the atmosphere...~
