@@ -75,7 +75,6 @@ COPY ~%MOD_FOLDER%/creatures/C0MMin.cre~ ~override~
   SAY SELECT_COMMON3 ~Whatcha need?~ [C0MM019]
   SAY SELECT_COMMON4 ~I'm here.~ [C0MM020]
   SAY SELECT_COMMON5 ~Go ahead and ask!~ [C0MM021]
-  SAY SELECT_COMMON6 ~Mmm?~ [C0MM022]
   SAY SELECT_ACTION1 ~Got it.~ [C0MM023]
   SAY SELECT_ACTION2 ~What can't I do?~ [C0MM026]
   SAY SELECT_ACTION3 ~This'll be fun.~ [C0MM027]
