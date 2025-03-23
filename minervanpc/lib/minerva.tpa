@@ -3,41 +3,41 @@
 LAF HANDLE_AUDIO END
 
 DEFINE_PATCH_FUNCTION ~GET_2DA_ROW~
-	INT_VAR
-		starting_row=0
-		numcolumns=0
-		match_column=0
-		found_it=0
-	STR_VAR
-		match=~DEFA~
-	RET
-		numcols
-		matched
+  INT_VAR
+    starting_row=0
+    numcolumns=0
+    match_column=0
+    found_it=0
+  STR_VAR
+    match=~DEFA~
+  RET
+    numcols
+    matched
 BEGIN
-		COUNT_2DA_ROWS numcolumns numrows
-		FOR (i = starting_row; i < numrows; ++i) BEGIN
-			READ_2DA_ENTRY i match_column numcolumns string_to_match
-			PATCH_IF (~%string_to_match%~ STRING_EQUAL_CASE ~%match%~) BEGIN
-				matched = i
-				found_it = 1
-				i = numrows
+    COUNT_2DA_ROWS numcolumns numrows
+    FOR (i = starting_row; i < numrows; ++i) BEGIN
+      READ_2DA_ENTRY i match_column numcolumns string_to_match
+      PATCH_IF (~%string_to_match%~ STRING_EQUAL_CASE ~%match%~) BEGIN
+        matched = i
+        found_it = 1
+        i = numrows
 
-			END
-		END
-		numcols = numcolumns
-		PATCH_IF (found_it = 0) BEGIN
-			PATCH_FAIL ~GET_2DA_ROW: Could not find a row that contains %match% in column %match_column%.~
-		END
+      END
+    END
+    numcols = numcolumns
+    PATCH_IF (found_it = 0) BEGIN
+      PATCH_FAIL ~GET_2DA_ROW: Could not find a row that contains %match% in column %match_column%.~
+    END
 END
-	
+
 ADD_MUSIC ~C0MMMUS~ ~%MOD_FOLDER%/music/C0MMMUS.mus~
 COPY ~%MOD_FOLDER%/music/c0mmmusa.acm~ ~MUSIC/C0MMMUS/c0mmmusa.acm~
 
 COPY_EXISTING ~SONGLIST.2da~ ~override~
-	LPF GET_2DA_ROW INT_VAR numcolumns=3 match_column=2 STR_VAR match=~C0MMMUS.mus~ RET therow=matched END
-	READ_2DA_ENTRY therow 0 3 ~song~
+  LPF GET_2DA_ROW INT_VAR numcolumns=3 match_column=2 STR_VAR match=~C0MMMUS.mus~ RET therow=matched END
+  READ_2DA_ENTRY therow 0 3 ~song~
 
-	OUTER_SET C0MMMUS = song
+  OUTER_SET C0MMMUS = song
 
 ///////////////
 // CREATURES //
@@ -101,27 +101,28 @@ APPEND ~interdia.2da~ ~C0MMIN BC0MMIN BC0MMIN~
 APPEND ~STATE.IDS~ // adds custom IsValidForPartyDialogue state
   ~0x80101FEF CD_STATE_NOTVALID~
   UNLESS ~CD_STATE_NOTVALID~
-  
-EXTEND_TOP ~AR1000.bcs~ ~%MOD_FOLDER%/Scripts/AR1000.baf~
+
+EXTEND_TOP ~AR1000.bcs~ ~%MOD_FOLDER%/scripts/ar1000.baf~
 
 LAF ALTER_SCRIPT_BLOCK
       STR_VAR script=kuarundd
-			  swap_out=~!Allegiance(Myself,ENEMY)~
-			  swap_in=~!InMyArea("C0MMin")InParty("C0MMin")!Allegiance(Myself,ENEMY)~
+        swap_out=~!Allegiance(Myself,ENEMY)~
+        swap_in=~!InMyArea("C0MMin")InParty("C0MMin")!Allegiance(Myself,ENEMY)~
 END
 
-COMPILE EVAL ~%MOD_FOLDER%/Scripts/C0MMinS.baf~
-		~%MOD_FOLDER%/Scripts/C0MMinD.baf~
-		~%MOD_FOLDER%/Scripts/C0MMinR.baf~
-		~%MOD_FOLDER%/Scripts/C0MODR.baf~
-		~%MOD_FOLDER%/Scripts/C0MSumm.baf~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/scripts/c0mmins.baf~
+    ~%MOD_FOLDER%/scripts/c0mmind.baf~
+    ~%MOD_FOLDER%/scripts/c0mminr.baf~
+    ~%MOD_FOLDER%/scripts/c0modr.baf~
+    ~%MOD_FOLDER%/scripts/c0msumm.baf~
 
-COMPILE EVAL ~%MOD_FOLDER%/Dialogue/C0MMin.d~
-		~%MOD_FOLDER%/Dialogue/C0MMinJ.d~
-		~%MOD_FOLDER%/Dialogue/C0MODR.d~
-		~%MOD_FOLDER%/Dialogue/BC0MMin.d~
-  
-COPY_EXISTING ~DAGG11.itm~ ~override~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dialogue/c0mmin.d~
+    ~%MOD_FOLDER%/dialogue/c0mminj.d~
+    ~%MOD_FOLDER%/dialogue/c0modr.d~
+    ~%MOD_FOLDER%/dialogue/bc0mmin.d~
+    USING ~%MOD_FOLDER%/tra/%LANGUAGE%/dialogue.tra~
+
+COPY ~%MOD_FOLDER%/items/dagg11.itm~ ~override~
 SAY NAME1 #6343
 SAY NAME2 ~Boomerang Dagger +2~
 SAY UNIDENTIFIED_DESC #6720
@@ -147,8 +148,8 @@ Weight: 1~
 OUTER_SET DAGG11A = RESOLVE_STR_REF (~Melee Attack~)
 OUTER_SET DAGG11B = RESOLVE_STR_REF (~Ranged Attack~)
 APPEND TOOLTIP.2DA ~DAGG11 %DAGG11B% %DAGG11A% -1~ UNLESS ~DAGG11~
-  
-COPY_EXISTING ~DAGG12.itm~ ~override~
+
+COPY_EXISTING ~dagg12.itm~ ~override~
 SAY NAME1 #6343
 SAY NAME2 ~Firetooth +3~
 SAY UNIDENTIFIED_DESC #6720
@@ -179,13 +180,13 @@ ACTION_IF FILE_EXISTS_IN_GAME ~KUSMITH.sto~ THEN BEGIN
 COPY_EXISTING ~KUSMITH.sto~ ~override~
 ADD_STORE_ITEM ~DAGG11~ BEFORE ~RELIAN~ #0 #0 #0 ~IDENTIFIED~ #1
 END
-  
+
 ACTION_IF FILE_EXISTS_IN_GAME ~LDD_NYM.sto~ THEN BEGIN
 COPY_EXISTING ~LDD_NYM.sto~ ~override~
 ADD_STORE_ITEM ~DAGG12~ AFTER ~MYSTERY~ #0 #0 #0 ~IDENTIFIED~ #1
 END
-  
-COPY_EXISTING ~C0MBrac1.itm~ ~override~
+
+COPY ~%MOD_FOLDER%/items/c0mbrac1.itm~ ~override~
 SAY NAME1 ~Bracers~
 SAY NAME2 ~Minerva's Bracers of Knife-Throwing Excellence~
 SAY DESC ~Minerva's leather bracers appear simple at first glance, but closer inspection (as far as she'll allow) reveals knives, tools and small phials concealed in secret compartments, between straps, and seemingly every available space possible. How nothing ever seems to fall out or become a safety hazard is a mystery only explained by Lantanese innovation.
@@ -204,7 +205,7 @@ Weight: 2~
 OUTER_SET strref = RESOLVE_STR_REF (~Minerva snaps her wrist backwards as you touch her bracer. "Nope, not unless you want to lose fingers."~ [GAM_47])
 APPEND item_use.2da ~C0MBrac1 Minerva %strref% 3~
 
-COPY_EXISTING ~C0MBrac1.sto~ ~override~
+COPY ~%MOD_FOLDER%/items/c0mbrac1.sto~ ~override~
 SAY 0xc ~Bracers of Knife-Throwing Excellence~
 
 COPY_EXISTING ~C0MDaggS.spl~ ~override~
@@ -223,12 +224,12 @@ COPY_EXISTING ~C0MDagg1.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0ARFT~))
-	  parameter2 = 9
-	  power = 1
-	  special = RESOLVE_STR_REF (~Artificer~)
+    target = 1
+    timing = 2
+    parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0ARFT~))
+    parameter2 = 9
+    power = 1
+    special = RESOLVE_STR_REF (~Artificer~)
 END
       LPF ALTER_EFFECT
       INT_VAR
@@ -254,16 +255,16 @@ Requires:
 
 Weight: 0~
 
-COPY_EXISTING ~C0MDagg2.itm~ ~override~
+COPY ~%MOD_FOLDER%/items/c0mdagg2.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0ARFT~))
-	  parameter2 = 9
-	  power = 1
-	  special = RESOLVE_STR_REF (~Artificer~)
+    target = 1
+    timing = 2
+    parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0ARFT~))
+    parameter2 = 9
+    power = 1
+    special = RESOLVE_STR_REF (~Artificer~)
 END
       LPF ALTER_EFFECT
       INT_VAR
@@ -290,16 +291,16 @@ Requires:
 
 Weight: 0~
 
-COPY_EXISTING ~C0MDagg3.itm~ ~override~
+COPY ~%MOD_FOLDER%/items/c0mdagg3.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 319
-	  target = 1
-	  timing = 2
-	  parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0ARFT~))
-	  parameter2 = 9
-	  power = 1
-	  special = RESOLVE_STR_REF (~Artificer~)
+    target = 1
+    timing = 2
+    parameter1 = (IDS_OF_SYMBOL (~kit~ ~C0ARFT~))
+    parameter2 = 9
+    power = 1
+    special = RESOLVE_STR_REF (~Artificer~)
 END
       LPF ALTER_EFFECT
       INT_VAR
@@ -326,16 +327,16 @@ Requires:
 
 Weight: 0~
 
-COPY_EXISTING ~BELTGON.itm~ ~override~
+COPY_EXISTING ~beltgon.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 177
-	  target = 1
-	  timing = 2
-	  parameter1 = IDS_OF_SYMBOL (~KIT~ ~C0ARFT~)
-	  parameter2 = 9
-	STR_VAR
-	  resource = C0MBELT1
+    target = 1
+    timing = 2
+    parameter1 = IDS_OF_SYMBOL (~KIT~ ~C0ARFT~)
+    parameter2 = 9
+  STR_VAR
+    resource = C0MBELT1
 END
 SAY DESC ~Gond, god of invention and artifice, is a deity rarely worshipped by traditional adventurers. Some thieves, however, revere Gond for his role in the development of locks, traps, and other complex machines. One such thief was the burglar Jurmar the Calm, who began his career as a locksmith. Known for his cool demeanor and steady hand, Jurmar paid priests of Gond to fashion this tool belt for him. Whenever Jurmar was stuck in a situation where he didn't have the right tool for a job, one of the small pouches on the belt would supply him with what he needed.
 
@@ -348,7 +349,7 @@ Equipped abilities:
 
 Weight: 2~
 
-COPY_EXISTING ~C0MFISH.itm~ ~override~
+COPY ~%MOD_FOLDER%/items/c0mfish.itm~ ~override~
 SAY NAME1 ~Minerva's Lucky Knucky Pendant~
 SAY NAME2 ~Minerva's Lucky Knucky Pendant~
 SAY DESC ~Minerva's 'Lucky Knucky' was carved from the remains of a large knucklehead trout. Though certainly not the first option to come to mind as a worn accessory, scrimshaw has an earthen, natural beauty of its own. Minerva insists that it will bring its holder good luck.
@@ -361,16 +362,16 @@ Equipped abilities:
 
 Weight: 1~
 
-COPY_EXISTING ~CDGOND.itm~ ~override~
+COPY_EXISTING ~cdgond.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT
     INT_VAR
       opcode = 177
-	  target = 1
-	  timing = 2
-	  parameter1 = IDS_OF_SYMBOL (~KIT~ ~C0ARFT~)
-	  parameter2 = 9
-	STR_VAR
-	  resource = C0MBELT2
+    target = 1
+    timing = 2
+    parameter1 = IDS_OF_SYMBOL (~KIT~ ~C0ARFT~)
+    parameter2 = 9
+  STR_VAR
+    resource = C0MBELT2
 END
 SAY DESC ~Gond, god of invention and artifice, is a deity rarely worshipped by traditional adventurers. Some thieves, however, revere Gond for his role in the development of locks, traps, and other complex machines. One such thief was the burglar Jurmar the Calm, who began his career as a locksmith. Known for his cool demeanor and steady hand, Jurmar paid priests of Gond to fashion this tool belt for him. Whenever Jurmar was stuck in a situation where he didn't have the right tool for a job, one of the small pouches on the belt would supply him with what he needed.
 
@@ -385,27 +386,27 @@ Equipped abilities:
 
 Weight: 2~
 
-COPY_EXISTING ~C0MSICK1.SPL~ ~override~
+COPY ~%MOD_FOLDER%/spells/c0msick1.spl~ ~override~
       LPF ALTER_EFFECT
       INT_VAR
         match_opcode      = 139   // Display portrait icon
         parameter1 = RESOLVE_STR_REF (~Nauseated~)
       END
 
-COPY_EXISTING ~C0MSICK2.SPL~ ~override~
+COPY ~%MOD_FOLDER%/spells/c0msick2.spl~ ~override~
       LPF ALTER_EFFECT
       INT_VAR
         match_opcode      = 139   // Display portrait icon
         parameter1 = RESOLVE_STR_REF (~Empowered~)
       END
 
-COPY_EXISTING ~C0MSP01.SPL~ ~override~
+COPY ~%MOD_FOLDER%/spells/c0msp01.spl~ ~override~
       LPF ALTER_EFFECT
       INT_VAR
         match_opcode      = 139   // Display portrait icon
         parameter1 = RESOLVE_STR_REF (~Stunned~)
       END
-	  
+
 SAY NAME1 ~Gear Crash~
 SAY UNIDENTIFIED_DESC ~Gear Crash
 (Evocation)
@@ -419,29 +420,29 @@ Saving Throw: Neg.
 
 A gear-shaped mass of energy originating from the plane of Mechanus is formed above the targeted creature, smashing into them and dealing 6d6 damage (half magical, half physical). If the target fails a Saving Throw vs. Spells, they are additionally Stunned for 1 round.~
 
-COPY_EXISTING ~C0MMOD1.cre~ ~override~
+COPY ~%MOD_FOLDER%/creatures/c0mmod1.cre~ ~override~
   WRITE_ASCII 0X34 ~C0MODR~ #8   //small portrait
-SAY NAME1 ~Quartus-G1~
-SAY NAME2 ~Quartus-G1~
-WRITE_ASCII 0x2cc ~C0MODR~  #8  // dialogue
+  SAY NAME1 ~Quartus-G1~
+  SAY NAME2 ~Quartus-G1~
+  WRITE_ASCII 0x2cc ~C0MODR~  #8  // dialogue
   WRITE_ASCII 0x280 ~C0MODR~ #32  //DV
-    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_MODRON~))
+  WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_MODRON~))
 
-COPY_EXISTING ~C0MMOD2.cre~ ~override~
+COPY ~%MOD_FOLDER%/creatures/c0mmod2.cre~ ~override~
   WRITE_ASCII 0X34 ~C0MODR~ #8   //small portrait
-SAY NAME1 ~Quartus-G2~
-SAY NAME2 ~Quartus-G2~
-WRITE_ASCII 0x2cc ~C0MODR~  #8  // dialogue
+  SAY NAME1 ~Quartus-G2~
+  SAY NAME2 ~Quartus-G2~
+  WRITE_ASCII 0x2cc ~C0MODR~  #8  // dialogue
   WRITE_ASCII 0x280 ~C0MODR~ #32  //DV
-    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_MODRON~))
+  WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_MODRON~))
 
-COPY_EXISTING ~C0MMOD3.cre~ ~override~
+COPY ~%MOD_FOLDER%/creatures/c0mmod3.cre~ ~override~
   WRITE_ASCII 0X34 ~C0MODR~ #8   //small portrait
-SAY NAME1 ~Quartus-G3~
-SAY NAME2 ~Quartus-G3~
-WRITE_ASCII 0x2cc ~C0MODR~  #8  // dialogue
+  SAY NAME1 ~Quartus-G3~
+  SAY NAME2 ~Quartus-G3~
+  WRITE_ASCII 0x2cc ~C0MODR~  #8  // dialogue
   WRITE_ASCII 0x280 ~C0MODR~ #32  //DV
-    WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_MODRON~))
-	
-COPY_EXISTING ~c0mnktn.spl~ ~override~
+  WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~C0_MODRON~))
+
+COPY ~%MOD_FOLDER%/spells/c0mnktn.spl~ ~override~
 LPF ALTER_EFFECT INT_VAR match_opcode = 290 parameter1 = RESOLVE_STR_REF (~Artificer~) END
