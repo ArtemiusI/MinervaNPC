@@ -1,6 +1,6 @@
-BACKUP ~MinervaNPC/backup~
+BACKUP ~weidu_external/MinervaNPC/backup~
 AUTHOR ~AionZ (formerly Artemius_I)~
-VERSION ~1.0~
+VERSION ~1.1~
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/fl#add_kit_ee.tpa~
   INCLUDE ~%MOD_FOLDER%/lib/alter_script.tpa~
@@ -8,12 +8,12 @@ ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
 END
 
-AUTO_TRA ~%MOD_FOLDER%/tra/%s~ //~%~
+AUTO_TRA ~%MOD_FOLDER%/tra/%s~
 LANGUAGE 
   ~English~ 
   ~english~
   ~%MOD_FOLDER%/tra/english/setup.tra~
-		 
+
 BEGIN ~Minerva NPC for Icewind Dale: Enhanced Edition~
   REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~This component must be installed on IWD:EE.~
 COPY ~%MOD_FOLDER%/2da~ ~override~
