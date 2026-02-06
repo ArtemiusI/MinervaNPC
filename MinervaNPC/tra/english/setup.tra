@@ -1,0 +1,587 @@
+@0    = ~1.0~
+@1    = ~Minerva NPC for Icewind Dale: Enhanced Edition~
+@2    = ~This component must be installed on IWD:EE.~
+@3    = ~fighter / artificer~
+@4    = ~Fighter / Artificer~
+@5    = ~FIGHTER/ARTIFICER: This character can use the abilities of a Fighter and an Artificer, though they cannot use their thieving skills while wearing more than studded leather armor. They may Specialize in, but usually not Master, any weapon they can use.
+ 
+ARTIFICER: Lantanese artificers are master innovators and craftsmen, making up for their lack of combat or cloak-and-dagger skills with expert knowledge of historical, scientific and arcane lore, as well as the use of deadly alchemical traps and metal automatons.
+
+Advantages:
+– +30 bonus to Lore.
+– +10% bonus to Find Traps, Open Locks and Set Traps.
+– May use the Set Alchemical Snare ability once per day in addition to the normal Thief's Set Snare. Gains one use at level 1 and an additional use every 5 levels thereafter.
+
+Set Alchemical Snare: Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
+
+  ALCHEMIST'S FIRE: Trap damage increases to d6 and sets targets Aflame, dealing an additional 1d4 fire damage per round.
+  RAPID FREEZE: Targets become Slowed, suffering a -4 penalty to THAC0 and Armor Class.
+  ACIDIC COMPOUND: Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.
+  ELECTRIC CHARGE: Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.
+
+– May use the Advanced Alchemy ability at will.
+
+ADVANCED ALCHEMY: Lantanese artificers are skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons. The types of potions available for crafting increase with the artificer's level.
+
+– From level 5 onwards, may create a Lantanese Autocannon once per day. Additional uses are gained at 10th and 15th level.
+
+– From level 8 onwards, may use the Craft Automaton ability once per day.
+
+CRAFT AUTOMATON: The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed. Only one automaton can be controlled at any given time.
+
+– From level 20 onwards, gains Master Alchemist.
+
+MASTER ALCHEMIST: The master artificer may access a completely new level of alchemy, gaining the ability to craft Potions of Divine Might, Potions of Complete Healing, Potions of True Sight and Potions of Hardiness with their Advanced Alchemy ability. They also gain the ability to craft a single Potion of Ultimate Mastery once in their lifetime.
+
+– From level 24 onwards, gains Grand Artifice.
+
+GRAND ARTIFICE: The master artificer takes her craft beyond that of any regular artisan, ensuring that her allies' tools and skills are optimized. As long as the artificer is alive and within the party, all party members gain a +2 bonus to Armor Class and Saving Throws, +1 bonus to casting time, +25% to all thieving skills, and +10% critical hit chance.
+
+Disadvantages:
+– -10% penalty to Pick Pockets, Hide in Shadows and Move Silently.
+– No backstab multiplier.
+– May only distribute 20 skill points per level among thieving skills.~
+@6    = ~Artificer~
+@7    = ~Set Alchemical Snare~
+@8    = ~Set Alchemical Snare
+Set a trap in the targeted location when no hostile creatures are in sight. Traps deal 2d4 (+1d4 extra damage per 3 levels) fire, cold, acid or electrical damage of the artificer's choice in a 10' radius, inflicting additional effects that last for 2 rounds + 1 round per 3 levels of the artificer. Effects are dependent on the chosen element. Alchemical Snares can only be set off by enemies, but affect all within its area of effect.
+
+  ALCHEMIST'S FIRE: Trap damage increases to d6 and sets targets Aflame, dealing an additional 1d4 fire damage per round.
+  RAPID FREEZE: Targets become Slowed, suffering a -4 penalty to THAC0 and Armor Class.
+  ACIDIC COMPOUND: Targets are afflicted with Corrosion, suffering a -25% penalty to Physical Resistance and Damage.
+  ELECTRIC CHARGE: Targets become Shocked, suffering a 10% chance every round to become Paralyzed for 1 round.~
+@9    = ~Aflame~
+@10   = ~Set Alchemical Trap: Alchemist's Fire~
+@11   = ~Slowed~
+@12   = ~Set Alchemical Trap: Rapid Freezing Reagent~
+@13   = ~Corroded~
+@14   = ~Set Alchemical Trap: Corrosive Acidic Compound~
+@15   = ~Shocked~
+@16   = ~Paralyzed~
+@17   = ~Set Alchemical Trap: Conductive Fluid~
+@18   = ~Advanced Alchemy~
+@19   = ~Advanced Alchemy
+Lantanese artificers are exceptionally skilled in chemistry and potion-making. This skill may be used to craft a number of potions or alchemical weapons equal to half of the artificer's level. The types of potions available for crafting increase with the artificer's level.
+
+This ability may be used an unlimited times per day, but the artificer's stock only refreshes after resting. Alchemy may not be performed while in combat.~
+@20   = ~Alchemy~
+@21   = ~Clockwork Servant Automaton~
+@22   = ~Alchemy - Standard Potions~
+@23   = ~Alchemy - Explosives~
+@24   = ~Alchemy - Advanced Potions~
+@25   = ~Craft Automaton~
+@26   = ~Craft Automaton
+The artificer spends two rounds to assimilate a powerful automaton which can be controlled at will. Automatons last until destroyed and cannot be controlled but will defend their creators, are disabled if their creator is incapacitated, lose control if their creator's mind is affected and fall apart if their creator is killed.
+
+Only one automaton can be controlled at any given time.~
+@27   = ~Craft Wand~
+@28   = ~Craft Wand
+The master artificer may use this ability at will to craft a variety of magical wands at a cost.
+
+Requires: Use Any Item~
+@29   = ~Wandcrafting~
+@30   = ~Master Alchemist~
+@31   = ~Master Alchemist
+The master artificer may access a completely new level of alchemy, gaining the ability to craft Potions of Divine Might, Potions of Complete Healing, Potions of True Sight and Potions of Hardiness with their Advanced Alchemy ability. They also gain the ability to craft a single Potion of Ultimate Mastery once in their lifetime.~
+@32   = ~Grand Artifice~
+@33   = ~Grand Artifice
+The master artificer takes her craft beyond that of any regular artisan, ensuring that her allies' tools and skills are optimized. As long as the artificer is alive and within the party, all party members gain a +2 bonus to Armor Class and Saving Throws, +1 bonus to casting time, +25% to all thieving skills, and +10% critical hit chance.
+
+Requires: Use Any Item~
+@34   = ~Potion of Renewal~
+@35   = ~Lantanese Potion of Renewal~
+@36   = ~This potion is composed of several exotic medicinal herbs and alchemical ingredients, giving it significant healing properties.
+
+STATISTICS:
+
+Special: Restores 30% of maximum Hit Points and cures all poisons and diseases.
+
+Weight: 1~
+@37   = ~Potion of Fire Resistance~
+@38   = ~Lantanese Potion of Fire Resistance~
+@39   = ~This exotic potion provides the imbiber with a significant resistance to heat. Those who drink this potion would be capable of leaping through a wall of flame without suffering the slightest injury.
+
+STATISTICS:
+
+Fire Resistance: +100%
+Special: Fire Resistance decreases by 10% per round to a minimum of 50% after 5 rounds.
+Duration: 2 hours
+
+Weight: 1~
+@40   = ~Potion of Cold Resistance~
+@41   = ~Lantanese Potion of Cold Resistance~
+@42   = ~This potion was designed for Lantanese researchers to allow them to survive at near-fatally low temperatures while experimenting with certain cold-dwelling creatures or plants. Those who drink this potion find themselves in a state of perpetual warmth.
+
+STATISTICS:
+
+Cold Resistance: +100%
+Special: Cold Resistance decreases by 10% per round to a minimum of 50% after 5 rounds.
+Duration: 2 hours
+
+Weight: 1~
+@43   = ~Philter of Health~
+@44   = ~Lantanese Philter of Health~
+@45   = ~This phial contains a highly nutritious and energy-rich liquid, designed to allow travellers to go on long journeys without the need for food or rest for an entire day.
+
+STATISTICS:
+
+Maximum Hit Points: +10%
+Special: Removes fatigue
+Duration: 1 hour
+
+Weight: 1~
+@46   = ~Potion of Invisibility~
+@47   = ~Lantanese Potion of Invisibility~
+@48   = ~The natives of Lantan are known for being relatively pacifistic and prefer to avoid conflict wherever possible. To this end, their potions of invisibility are among the most popular of their alchemical creations, as it allows them to escape nearly any situation completely unscathed.
+
+STATISTICS:
+
+Special: Invisibility and Non-Detection
+Duration: 1 hour
+
+Weight: 1~
+@49   = ~Trollblood Extract~
+@50   = ~Lantanese Trollblood Extract~
+@51   = ~As foul-looking as this liquid appears to be, it has the undeniably effective property of bestowing its drinker with cellular regeneration of shocking rates. However, the concoction also temporarily bestows some of the weaknesses of trollkin as a result.
+
+STATISTICS:
+
+Fire Resistance: -50%
+Acid Resistance: -50%
+Special: Regenerate two hit points per second
+Duration: 5 rounds
+
+Weight: 1~
+@52   = ~Tonic of Alertness~
+@53   = ~Lantanese Tonic of Alertness~
+@54   = ~This strongly-scented potion puts its drinker into a state of constant and total awareness, to the point where they can hear the slightest movement and practically see out of the back of their heads.
+
+STATISTICS:
+
+Dexterity: +1
+Find Traps: +25%
+Detect Illusions: +25%
+Special: Immunity to backstab
+Duration: 1 hour
+
+Weight: 1~
+@55   = ~Elixir of Harmony~
+@56   = ~Lantanese Elixir of Harmony~
+@57   = ~This powerful potion subscribes to the principle of "the best offense is a good defense". The drinker becomes nearly invulnerable to physical harm, yet finds their own blows significantly weakened in return.
+
+STATISTICS:
+
+Armor Class: +6
+Physical Resistance: +50%
+Special: Damage output is reduced by 50%
+Duration: 5 rounds
+
+Weight: 1~
+@58   = ~Potion of Antimagic~
+@59   = ~Lantanese Potion of Antimagic~
+@60   = ~This powerful potion expunges all traces of magic from its imbiber and prevents them from being affected by all but the most powerful spells until its effects dissipate.
+
+STATISTICS:
+
+Magic Resistance: +50%
+Special: Immunity to spells of 5th level and below, all spell effects are removed from the imbiber and <PRO_HESHE> may not cast spells for the duration.
+Duration: 2 rounds
+
+Weight: 1~
+@61   = ~Potion of Equanimity~
+@62   = ~Lantanese Potion of Equanimity~
+@63   = ~This potion clears the drinker's mind of distracting and inhibiting thoughts, allowing them to think and act with greater efficiency. Their hand-eye coordination is also significantly improved as a result.
+
+STATISTICS:
+
+Special: Prevents feeblemind, confusion, fear, and charm
+Intelligence: +4
+Dexterity: +4
+Duration: 1 hour
+
+Weight: 1~
+@64   = ~Oil of Speed~
+@65   = ~Lantanese Oil of Speed~
+@66   = ~This oil, when applied on the user, hastens their actions greatly, doubling their movement and combat capacities. However, this does not reduce spellcasting time.
+
+STATISTICS:
+
+Special: Doubles movement and attack rates
+Duration: 1 turn
+
+Weight: 1~
+@67   = ~Potion of Invulnerability~
+@68   = ~Lantanese Potion of Invulnerability~
+@69   = ~This potion confers very high resistance to all attacks while giving bonuses to all Saving Throws. Unlike regular Potions of Invulnerability, this potion can be used by those of any profession.
+
+STATISTICS:
+
+Armor Class: +2
+Saving Throws: +5
+Duration: 1 hour
+
+Weight: 1~
+@70   = ~Philter of Luck~
+@71   = ~Lantanese Philter of Luck~
+@72   = ~Also known informally as 'liquid luck', this gold-colored liquid provides the drinker with an sense of temporary luck and confidence, as though nothing could go wrong.
+
+STATISTICS:
+
+Saving Throws: +2
+Find Traps: +10%
+Pick Pockets: +10%
+Move Silently: +10%
+Hide In Shadows: +10%
+Detect Illusion: +10%
+Set Traps: +10%
+Luck: +2
+Duration: 1 hour
+
+Weight: 1~
+@73   = ~Elixir of Restoration~
+@74   = ~Lantanese Elixir of Restoration~
+@75   = ~This elixir was designed and patented by the Lantanese priesthood of Gond. Concocted from several restorative ingredients and a dash of holy water, it is effective against the draining touch of vampires and wights.
+
+STATISTICS:
+
+Special: Restores lost levels
+Duration: Permanent
+
+Weight: 1~
+@76   = ~Potion of Freedom~
+@77   = ~Lantanese Potion of Freedom~
+@78   = ~This potion acts like the spell Free Action when consumed. The drinker becomes completely immune to any effects that influence action or movement, whether it is magical in origin or not.
+
+STATISTICS:
+
+Special: Free Action
+Duration: 1 hour
+
+Weight: 1~
+@79   = ~Elixir of Lifeshield~
+@80   = ~Lantanese Elixir of Lifeshield~
+@81   = ~This elixir was designed and patented by the Lantanese priesthood of Gond. The drinker's soul becomes protected by magical energies, preventing it from being separated from their body through unnatural means.
+
+STATISTICS:
+
+Special: Death Ward
+Duration: 1 hour
+
+Weight: 1~
+@82   = ~Elixir of Might~
+@83   = ~Lantanese Elixir of Might~
+@84   = ~This elixir was concocted from a combination of various ingredients including giants' blood. When imbibed, the drinker's strength increases dramatically.
+
+STATISTICS:
+
+Strength: +2
+Duration: 1 hour
+
+Weight: 1~
+@85   = ~Thrym Extract~
+@86   = ~Lantanese Thrym Extract~
+@87   = ~This thick liquid is harvested and distilled from the glands of dead polar worms.  It is the substance that helps keep the huge creatures warm in the desolate north.  Drinking the liquid straight from the creature's body is almost always fatal, so alchemists attempt to distill the substance until it is relatively safe to consume.  Even in its current state, however, it can still be deadly.
+
+STATISTICS:
+
+Special: Imbiber takes 8d6 fire damage (Save vs. Death at -4 for half damage) in exchange for immunity to cold damage and +3 to Strength and Dexterity
+Duration: 1 turn
+
+Weight: 1~
+@88   = ~Potion of Etherealness~
+@89   = ~Lantanese Potion of Etherealness~
+@90   = ~This potion is composed of ectoplasm and dust from will-o'-wisps. The drinker takes on some of their ghostly properties, temporarily becoming ethereal.
+
+STATISTICS:
+
+Special: Imbiber becomes ethereal for 5 rounds. While in this state <PRO_HESHE> is immune to normal weapons and gains 20% magic resistance. Spells and weapons may still be used.
+Duration: 1 turn
+
+Weight: 1~
+@91   = ~Elixir of Focus~
+@92   = ~Lantanese Elixir of Focus~
+@93   = ~This potion temporarily sharpens the drinker's senses to their absolute limit, making them feel as if time has stopped for a brief duration. However, they will find it nearly impossible to take action during this state.
+
+STATISTICS:
+
+Special: Imbiber may move freely for one round while others are frozen in time. The imbiber may not attack or use spells while in this state.
+Duration: 1 round
+
+Weight: 1~
+@94   = ~Potion of Life Transference~
+@95   = ~Lantanese Potion of Life Transference~
+@96   = ~This dangerous potion sacrifices vitality for power. The drinker finds <PRO_HISHER> strength dramatically increased at the cost of their health.
+
+STATISTICS:
+
+Strength: +6
+Maximum Hit Points: -50%
+Duration: 8 hours
+
+Weight: 1~
+@97   = ~Philter of Arcane Barrier~
+@98   = ~Lantanese Philter of Arcane Barrier~
+@99   = ~This potion causes the drinker's very skin itself to repel magical energies, making them all but immune to the majority of spells. However, they may still cast their own spells if they so choose.
+
+STATISTICS:
+
+Damage Resistance: +75% against all forms of magical non-physical damage
+Special: All Saving Throws are automatically successful
+Duration: 3 turns
+
+Weight: 1~
+@100  = ~Lantanese Elixir of Divine Might~
+@101  = ~Elixirs of Divine Might increase the imbiber's Strength, Dexterity and Constitution by four points each for ten rounds.~
+@102  = ~Lantanese Potion of Complete Healing~
+@103  = ~Potions of Complete Healing are the ultimate healing potion, fully restoring the imbiber's hit points and curing all diseases, poisons and mental injuries.~
+@104  = ~Lantanese Philter of Truth~
+@105  = ~Philters of Truth allow the imbiber to see through and dispel all illusions in their line of sight for ten rounds.~
+@106  = ~Lantanese Tonic of Hardiness~
+@107  = ~Tonics of Hardiness toughen the imbiber's skin to the hardness of steel, providing 40% resistance to physical damage for ten rounds.~
+@108  = ~Permanent Ability Increase~
+@109  = ~Ultimate Mastery~
+@110  = ~Lantanese Potion of Ultimate Mastery~
+@111  = ~A Potion of Ultimate Mastery permanently enhances the imbiber's skills in their chosen profession.
+
+   - Mages and Bards gain +2 to Intelligence.
+   - Clerics and Druids gain +2 to Wisdom.
+   - Thieves and Monks gain +2 to Dexterity.
+   - Fighters, Rangers and Paladins gain +2 to Strength.
+   - Sorcerers and Shamans gain +2 to Constitution.
+   - Spellcasting classes take precedence over warrior classes.
+   - Arcane classes take precedence over divine classes.~
+@112  = ~Lantan Autocannon~
+@113  = ~Create Autocannon~
+@114  = ~Create Autocannon
+The Lantanese Autocannon is a weaponized contraption created by artificers with magical training. Built from durable metals, the autocannon makes up for what it lacks in mobility with power, unleashing bolts of fire against victims at rapid speed, making it a valuable defensive weapon. Due to the enchantments placed upon the autocannon, it becomes active upon sensing enemies of its creator, upon which it will attack relentlessly until the magic that animates it is fully spent. Due to its efficient design, the autocannon is portable and quick to set up.
+
+With this ability, an artificer may attempt to create a Lantanese Autocannon in the targeted location. The success of the ability is dependent on the artificer's Set Traps skill. This autocannon will become active upon an enemy creature entering its range. The autocannon is immobile and attacks five times per round with fiery missiles dealing 1d3+1 damage per missile with a +6 enchantment. Automatons have a 5% chance per round of becoming charged, granting a +4 bonus to THAC0 and doubling their attacks per round for six seconds.
+
+For each 15 points of Set Traps above 100 from the artificer, autocannons gain a +1 bonus to THAC0 and +5 bonus hit points.
+
+Once activated, autocannons last for two turns.~
+@115  = ~GET_2DA_ROW: Could not find a row that contains %match% in column %match_column%.~
+@116  = ~Minerva~
+@117  = ~When asked about her past, MINERVA giggles as if you've said something incredibly amusing, before asking why you'd ask about the past when the present holds such excitement. After some nudging, however, she confesses that she was born of the Glimmershine clan, who hail from the distant island nation known as Lantan. Known for their numerable advancements in the field of science and technology, Lantanese artificers rarely stray from their island and their colonies throughout Faerun, making Minerva's presence in the North an unusual circumstance. When pressed on this, Minerva simply states that the thrill of wanderlust and adventure drove her to leave the comforts of her home, and her greatest desire is to travel the entirety of Faerun... and perhaps beyond. For what purpose besides her own amusement, however, you cannot say.~
+@119  = ~Alright! Let's go looking for an adventure!~ [C0MM001]
+@120  = ~It's hard to appreciate the journey when you're falling asleep on your feet.~ [C0MM002]
+@121  = ~This is soooo boring. Time's ticking away as we speak, let's get going!~ [C0MM003]
+@122  = ~You'd better not blink!~ [C0MM004]
+@123  = ~Haha, let's dance!~ [C0MM005]
+@124  = ~Eat knives!~ [C0MM006]
+@125  = ~You're going down!~ [C0MM007]
+@126  = ~This isn't personal!~ [C0MM008]
+@127  = ~Oof!~ [C0MM009]
+@128  = ~Ah... no...~ [C0MM010]
+@129  = ~Haha, this is nothing! ...Oww.~ [C0MM011]
+@130  = ~I hope we find something exotic here. Like a dragon. Or maybe a hippogriff. Ooh!~ [C0MM012]
+@131  = ~So many people here. I wonder if they've all got interesting stories to tell?~ [C0MM013]
+@132  = ~This is where all the best adventures are!~ [C0MM014]
+@133  = ~It's a nice day. Let's not waste it.~ [C0MM015]
+@134  = ~Good thing I can see in the dark.~ [C0MM016]
+@135  = ~Hey there!~ [C0MM017]
+@136  = ~What's up?~ [C0MM018]
+@137  = ~Whatcha need?~ [C0MM019]
+@138  = ~I'm here.~ [C0MM020]
+@139  = ~Go ahead and ask!~ [C0MM021]
+@140  = ~Got it.~ [C0MM023]
+@141  = ~What can't I do?~ [C0MM026]
+@142  = ~This'll be fun.~ [C0MM027]
+@143  = ~You're going to keep doing that, aren't you?~ [C0MM029]
+@144  = ~*giggle* That tickles!~ [C0MM030]
+@145  = ~"Two-hundred-and-six, two-hundred-and-seven, two-hundred-and-eight, two-hundred-and-nine..."~ [C0MM031]
+@146  = ~Okay, okay, I heard you already!~ [C0MM032]
+@147  = ~Bullseye!~ [C0MM033]
+@148  = ~Um... that was embarrassing.~ [C0MM034]
+@149  = ~Look at that! No effect at all.~ [C0MM035]
+@150  = ~OW! I dropped that on my foot!~ [C0MM036]
+@151  = ~Hey, rude!~ [C0MM037]
+@152  = ~This'll really hurt whoever steps on it.~ [C0MM038]
+@153  = ~Shh. I'm hiding!~ [C0MM039]
+@154  = ~Yoink!~ [C0MM040]
+@155  = ~Boomerang Dagger +2~
+@156  = ~Fullen Woolspinner, an ambitious halfling from a well-to-do family, left his home to spend several years adventuring. During his travels, he ended up staying with a family of dwarven weaponsmiths. Much impressed by their throwing axes, which always returned to the hands of their wielder, Fullen sought to make a dagger that could do the same. With the help of his dwarven friends, he succeeded, creating several of the famous Fullen Boomerang daggers.
+
+STATISTICS:
+
+Combat abilities:
+– Returns to the wielder's hand when thrown
+
+THAC0: +2
+Damage: 2d4+2
+Damage type (melee): Piercing
+Damage type (thrown): Missile
+Speed Factor: 1
+Proficiency Type: Dagger
+Type: One-handed
+Requires:
+ 3 Strength
+
+Weight: 1~
+@157  = ~Melee Attack~
+@158  = ~Ranged Attack~
+@159  = ~Firetooth +3~
+@160  = ~Dagger of Throwing +3: Firetooth
+This throwing knife is imbued with magical fire, and was supposedly carved from an extracted red dragon tooth. Tavern tales suggest that the beast is still alive, her anger fueling the enchantment within the weapon. Though fanciful, the story is consistent, and it is said the dagger returns to the thrower "as though on wings."
+
+STATISTICS:
+
+Combat abilities:
+– Returns to the wielder's hand when thrown
+
+THAC0: +3
+Damage: 2d4+3, +1d2 fire damage
+Damage type: Missile
+Speed Factor: 1
+Proficiency Type: Dagger
+Type: One-handed
+Requires:
+ 3 Strength
+
+Weight: 1~
+@161  = ~Bracers~
+@162  = ~Minerva's Bracers of Knife-Throwing Excellence~
+@163  = ~Minerva's leather bracers appear simple at first glance, but closer inspection (as far as she'll allow) reveals knives, tools and small phials concealed in secret compartments, between straps, and seemingly every available space possible. How nothing ever seems to fall out or become a safety hazard is a mystery only explained by Lantanese innovation.
+
+STATISTICS:
+
+Charge abilities:
+– May create 5 'Blast Knives' once per day
+
+Equipped abilities:
+– Ranged THAC0: +2
+– From 9th level onwards, Proficiency (Dagger): +1
+– From 13th level onwards, +2 THAC0 (Ranged) and +5% Critical Hit Rate (Ranged)
+
+Weight: 2~
+@164  = ~Minerva snaps her wrist backwards as you touch her bracer. "Nope, not unless you want to lose fingers."~ [GAM_47]
+@165  = ~Bracers of Knife-Throwing Excellence~
+@166  = ~Stunned~
+@167  = ~Throwing Dagger~
+@168  = ~Blast Knives~
+@169  = ~Blast Knives are slightly larger-than-normal daggers with a hollowed blade and detachable grip, allowing for a small quantity of explosive oil to be contained within. When the small fuse connected to the hilt is lit, the knife must be thrown quickly and precisely, as it will detonate with a fiery impact once the oil is ignited. A dangerous and powerful weapon, and one that only a skilled artificer may handle safely.
+
+STATISTICS:
+
+Combat abilities:
+– 3 attacks per round
+– Deals 1d6 fire damage and Stuns on a failed Saving Throw vs. Breath. If the target dies, an explosion occurs inflicting the same effects to all creatures in a 5-ft. radius.
+
+Damage: 1d4 (missile)
+Speed Factor: 2
+Proficiency Type: Dagger
+Type: One-handed
+Requires:
+ 3 Strength
+
+Weight: 0~
+@170  = ~Blast Knives +2~
+@171  = ~Blast Knives are slightly larger-than-normal daggers with a hollowed blade and detachable grip, allowing for a small quantity of explosive oil to be contained within. When the small fuse connected to the hilt is lit, the knife must be thrown quickly and precisely, as it will detonate with a fiery impact once the oil is ignited. A dangerous and powerful weapon, and one that only a skilled artificer may handle safely.
+
+STATISTICS:
+
+Combat abilities:
+– 3 attacks per round
+– Deals 3d6 fire damage and Stuns on a failed Saving Throw vs. Breath at -2. If the target dies, an explosion occurs inflicting the same effects to all creatures in a 5-ft. radius.
+
+THAC0: +2
+Damage: 1d4+2 (missile)
+Speed Factor: 1
+Proficiency Type: Dagger
+Type: One-handed
+Requires:
+ 3 Strength
+
+Weight: 0~
+@172  = ~Blast Knives +4~
+@173  = ~Blast Knives are slightly larger-than-normal daggers with a hollowed blade and detachable grip, allowing for a small quantity of explosive oil to be contained within. When the small fuse connected to the hilt is lit, the knife must be thrown quickly and precisely, as it will detonate with a fiery impact once the oil is ignited. A dangerous and powerful weapon, and one that only a skilled artificer may handle safely.
+
+STATISTICS:
+
+Combat abilities:
+– 3 attacks per round
+– Deals 5d6 fire damage and Stuns on a failed Saving Throw vs. Breath at -2. If the target dies, an explosion occurs inflicting the same effects to all creatures in a 5-ft. radius.
+
+THAC0: +4
+Damage: 1d4+4 (missile)
+Speed Factor: 0
+Proficiency Type: Dagger
+Type: One-handed
+Requires:
+ 3 Strength
+
+Weight: 0~
+@174  = ~Gond, god of invention and artifice, is a deity rarely worshipped by traditional adventurers. Some thieves, however, revere Gond for his role in the development of locks, traps, and other complex machines. One such thief was the burglar Jurmar the Calm, who began his career as a locksmith. Known for his cool demeanor and steady hand, Jurmar paid priests of Gond to fashion this tool belt for him. Whenever Jurmar was stuck in a situation where he didn't have the right tool for a job, one of the small pouches on the belt would supply him with what he needed.
+
+STATISTICS:
+
+Equipped abilities:
+– Open Locks: +10%
+– Find Traps: +5%
+– Set Traps: +10% (Artificers only)
+
+Weight: 2~
+@175  = ~Minerva's Lucky Knucky Pendant~
+@176  = ~Minerva's 'Lucky Knucky' was carved from the remains of a large knucklehead trout. Though certainly not the first option to come to mind as a worn accessory, scrimshaw has an earthen, natural beauty of its own. Minerva insists that it will bring its holder good luck.
+
+STATISTICS:
+
+Equipped abilities:
+– Luck: +1
+– Saving Throws: +1
+
+Weight: 1~
+@177  = ~Gond, god of invention and artifice, is a deity rarely worshipped by traditional adventurers. Some thieves, however, revere Gond for his role in the development of locks, traps, and other complex machines. One such thief was the burglar Jurmar the Calm, who began his career as a locksmith. Known for his cool demeanor and steady hand, Jurmar paid priests of Gond to fashion this tool belt for him. Whenever Jurmar was stuck in a situation where he didn't have the right tool for a job, one of the small pouches on the belt would supply him with what he needed.
+
+Oswald has managed to add even more tools for the belt, further enhancing its usefulness.
+
+STATISTICS:
+
+Equipped abilities:
+– Open Locks: +15%
+– Find Traps: +10%
+– Set Traps: +20% (Artificers only)
+
+Weight: 2~
+@178  = ~Nauseated~
+@179  = ~Empowered~
+@180  = ~Gear Crash~
+@181  = ~Gear Crash
+(Evocation)
+
+Level: 1
+Range: Visual range of the caster
+Duration: Instant
+Casting Time: 1
+Area of Effect: 1 creature
+Saving Throw: Neg.
+
+A gear-shaped mass of energy originating from the plane of Mechanus is formed above the targeted creature, smashing into them and dealing 6d6 damage (half magical, half physical). If the target fails a Saving Throw vs. Spells, they are additionally Stunned for 1 round.~
+@182  = ~Quartus-G1~
+@183  = ~Quartus-G2~
+@184  = ~Quartus-G3~
+@185  = ~SPLPROT.2DA - Stat out of Bounds.~
+@186  = ~SPLPROT.2DA - Relation out of Bounds.~
+@187  = ~Frozen~
+@188  = ~Detecting Magic~
+@189  = ~Magatama~
+@190  = ~*singing* "Upon the hearth the fire is red,
+Beneath the roof there is a bed;
+But not yet weary are our feet,
+Still round the corner we may meet,"~
+@191  = ~*singing* "A sudden tree or standing stone
+That none have seen but we alone..."~
+@192  = ~*singing* "Still round the corner there may wait
+A new road or a secret gate,
+And though we pass them by today,
+Tomorrow we may come this way,"~
+@193  = ~*singing* "And take the hidden paths that run
+Towards the Moon or to the Sun..."~
+@195  = ~Mmm?~ [C0MM022]
+@196  = ~"Oh, oh! Over here, north-trotters!"~
+@197  = ~C0MMMUS~
+@198  = ~Quartus is already currently active.~
+@199  = ~Disabled~
+@200  = ~Re-enabled~
+@201  = ~Lost control~
+@202  = ~Regained control~

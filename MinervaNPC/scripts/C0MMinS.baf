@@ -98,7 +98,7 @@ THEN
   FaceObject([PC])
   Wait(2)
   SetSequence(2)
-  DisplayStringHead(Myself,~"Oh, oh! Over here, north-trotters!"~)
+  DisplayStringHead(Myself,@196)
   SetInterrupt(TRUE)
 END
 
@@ -1166,7 +1166,7 @@ IF
 	Global("C0MMinRomanceTalk3","GLOBAL",1)
 THEN
 RESPONSE #100
-	PlaySong(%C0MMMUS%)
+	PlaySong(@197)
 	StartDialogueNoSet(Player1)
 END
 
