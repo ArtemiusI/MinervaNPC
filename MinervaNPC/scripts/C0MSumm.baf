@@ -22,7 +22,7 @@ IF
   !Dead("C0MODR")
   InMyArea("C0MODR")
 THEN RESPONSE #100
-	DisplayString(LastSummonerOf(Myself),@198)
+	DisplayString(LastSummonerOf(Myself),~Quartus is already currently active.~)
 	DestroySelf()
 END
 
@@ -32,6 +32,6 @@ IF
   !InMyArea("C0MODR")
 THEN RESPONSE #100
 	MoveGlobalObject("C0MODR","C0Aura")
-	DisplayString(LastSummonerOf(Myself),@198)
+	DisplayString(LastSummonerOf(Myself),~Quartus is already currently active.~)
 	DestroySelf()
 END

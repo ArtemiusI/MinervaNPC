@@ -109,21 +109,21 @@ END
 
 IF
     StateCheck("C0MMin",STATE_IMMOBILE)
-	Global(@199,"LOCALS",0)
+	Global("Disabled","LOCALS",0)
 THEN
 RESPONSE #100
-	SetGlobal(@199,"LOCALS",1)
-	DisplayStringHead(Myself,@199)
+	SetGlobal("Disabled","LOCALS",1)
+	DisplayStringHead(Myself,~Disabled~)
 	ApplySpellRES("c0auto1",Myself)
 END
 
 IF
     !StateCheck("C0MMin",STATE_IMMOBILE)
-	Global(@199,"LOCALS",1)
+	Global("Disabled","LOCALS",1)
 THEN
 RESPONSE #100
-	SetGlobal(@199,"LOCALS",0)
-	DisplayStringHead(Myself,@200)
+	SetGlobal("Disabled","LOCALS",0)
+	DisplayStringHead(Myself,~Re-enabled~)
 	ApplySpellRES("c0auto3",Myself)
 END
 
@@ -137,7 +137,7 @@ IF
 THEN
 RESPONSE #100
 	SetGlobal("Berserk","LOCALS",1)
-	DisplayStringHead(Myself,@201)
+	DisplayStringHead(Myself,~Lost control~)
 	ReallyForceSpellRES("c0auto2",Myself)
 END
 
@@ -150,13 +150,13 @@ IF
 THEN
 RESPONSE #100
 	SetGlobal("Berserk","LOCALS",0)
-	DisplayStringHead(Myself,@202)
+	DisplayStringHead(Myself,~Regained control~)
 	ReallyForceSpellRES("c0auto3",Myself)
 END
 
 IF
   !Global("SelfDefense","LOCALS",1)
-  !Global(@199,"LOCALS",1)
+  !Global("Disabled","LOCALS",1)
   !Global("Recharge","LOCALS",1)
   See(Nearestenemyof(Myself))
 THEN
@@ -166,7 +166,7 @@ END
 
 IF
   !Global("SelfDefense","LOCALS",1)
-  !Global(@199,"LOCALS",1)
+  !Global("Disabled","LOCALS",1)
   !Global("Recharge","LOCALS",1)
   AttackedBy([ENEMY],DEFAULT)
 THEN
@@ -177,7 +177,7 @@ END
 IF
   !Global("Recharge","LOCALS",1)
   !Global("Standby","LOCALS",1)
-  !Global(@199,"LOCALS",1)
+  !Global("Disabled","LOCALS",1)
 	!Global("Berserk","LOCALS",1)
 	ActionListEmpty()
 	!See(Nearestenemyof(Myself))
